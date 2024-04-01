@@ -1,42 +1,53 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
+/*   Updated: 2024/04/01 14:15:07 by aet-tale         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "filesforpush/ft_libft.h"
+// void print_arr(stack_arr *arr)
+// {
+//     while (arr)
+//     {
+//         printf("%i\n", arr->nmbr);
+//         arr= arr->next;
+//     }
+// }
 
-void print_arr(stack_arrr *arr)
+// void    list_add_front(stack_arr **head, int data)
+// {
+// 	stack_arrr *tmp;
+
+// 	if (!head)
+// 		return;
+// 	tmp = *head;
+// 	*head = malloc(sizeof(stack_arr));
+// 	(*head)->nmbr = data;
+// 	(*head)->next = tmp;
+// }
+
+void	ft_add_tostack(stack_arr **arr, char	**str)
 {
-    while (arr)
-    {
-        printf("%i\n", arr->nmbr);
-        arr= arr->next;
-    }
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		list_add_front(arr, ft_atoi(str[i]));
+		i++;
+	}
 }
 
-void    list_add_front(stack_arrr **head, int data)
+void	free_linked(stack_arr *arr)
 {
-	stack_arrr *tmp;
+	stack_arr	*tmp;
 
-	if (!head)
-		return;
-	tmp = *head;
-	*head = malloc(sizeof(stack_arrr));
-	(*head)->nmbr = data;
-	(*head)->next = tmp;
-}
-
-void	ft_add_tostack(stack_arrr **arr,char	**str)
-{
-    int i;
-
-    i = 0;
-    while(str[i])
-    {
-        list_add_front(arr, ft_atoi(str[i]));
-        i++;
-    }
-}
-
-void free_linked(stack_arrr *arr)
-{
-	stack_arrr *tmp;
 	while (arr)
 	{
 		tmp = arr->next;
@@ -45,9 +56,9 @@ void free_linked(stack_arrr *arr)
 	}
 }
 
-void free_arr(char **str)
+void	free_arr(char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -57,11 +68,11 @@ void free_arr(char **str)
 	}
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	stack_arrr *arr;
-	char **str;
-	int i;
+	stack_arr	*arr;
+	char		**str;
+	int			i;
 
 	arr = NULL;
 	i = 1;

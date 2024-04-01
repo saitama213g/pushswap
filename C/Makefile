@@ -14,7 +14,7 @@ $(NAME):$(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 %.o:%.c $(HEAD_LIB) $(HEAD_PRINTF) 
-        $(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 push_swap: push_swap.c
 	$(CC) $(CFLAGS) push_swap.c libft.a -o push_swap
