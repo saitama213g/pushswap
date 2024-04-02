@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:01:11 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/01 13:50:40 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/04/01 20:27:27 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@ void sa(stack_arr *arr)
 	arr->next->nmbr = tmp;
 }
 
-void (*sb)(stack_arr *) = sa;
-
 void ss(stack_arr *arra, stack_arr *arrb)
 {
 	sa(arra);
-	sb(arrb);
+	sa(arrb);
 }
 
 void pa(stack_arr **arra, stack_arr **arrb)
@@ -38,8 +36,6 @@ void pa(stack_arr **arra, stack_arr **arrb)
 	list_add_front(arra, (*arrb)->nmbr);
 	list_remove_first(arrb);
 }
-
-void (*pb)(stack_arr, stack_arr) = pa;
 
 void ra(stack_arr *arr)
 {
@@ -54,14 +50,12 @@ void ra(stack_arr *arr)
 	}
 }
 
-void (*rb)(stack_arr *arr) = ra;
-
 void rr(stack_arr *arra, stack_arr *arrb)
 {
 	if (!arra || !arrb)
 		return;
 	ra(arra);
-	rb(arrb);
+	ra(arrb);
 }
 
 void rra(stack_arr *arr)
@@ -77,12 +71,10 @@ void rra(stack_arr *arr)
 	arr->nmbr = first;
 }
 
-void    (*rrb)(stack_arr *arr) = rra;
-
 void    rrr(stack_arr *arra, stack_arr *arrb)
 {
 	if (!arra || !arrb)
 		return;
 	rra(arra);
-	rrb(arrb);
+	rra(arrb);
 }

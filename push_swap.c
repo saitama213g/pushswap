@@ -6,33 +6,13 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/01 14:15:07 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/04/02 01:21:25 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filesforpush/ft_libft.h"
-// void print_arr(stack_arr *arr)
-// {
-//     while (arr)
-//     {
-//         printf("%i\n", arr->nmbr);
-//         arr= arr->next;
-//     }
-// }
+#include "ft_libft.h"
 
-// void    list_add_front(stack_arr **head, int data)
-// {
-// 	stack_arrr *tmp;
-
-// 	if (!head)
-// 		return;
-// 	tmp = *head;
-// 	*head = malloc(sizeof(stack_arr));
-// 	(*head)->nmbr = data;
-// 	(*head)->next = tmp;
-// }
-
-void	ft_add_tostack(stack_arr **arr, char	**str)
+static void	ft_add_tostack(stack_arr **arr, char	**str)
 {
 	int	i;
 
@@ -44,7 +24,7 @@ void	ft_add_tostack(stack_arr **arr, char	**str)
 	}
 }
 
-void	free_linked(stack_arr *arr)
+static void	free_linked(stack_arr *arr)
 {
 	stack_arr	*tmp;
 
@@ -56,7 +36,7 @@ void	free_linked(stack_arr *arr)
 	}
 }
 
-void	free_arr(char **str)
+static void	free_arr(char **str)
 {
 	int	i;
 
@@ -92,5 +72,5 @@ int	main(int ac, char **av)
 	print_arr(arr);
 	free_linked(arr);
 	arr = NULL;
-	system("leaks");
+	
 }

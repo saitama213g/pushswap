@@ -6,11 +6,11 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 18:24:26 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/01 13:41:31 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/04/02 01:11:17 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libft.h"
+#include "ft_printf.h"
 
 size_t	ft_strlen(const char *s)
 {

@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:20:48 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/01 13:24:55 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/04/02 01:16:19 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,14 @@ int	ft_atoi(char *s)
 	return (number);
 }
 
-int main(void)
-{
-    int x = ft_atoi("2147483647");
-    ft_printf("%i\n", x);
-    // if(x < 214748364)
-    // {
-    //     printf("yes");
-    // }
-    // int x = -2147483647;
-    // printf("%i", x);
-}
+// int main(void)
+// {
+//     int x = ft_atoi("2147483647");
+//     ft_printf("%i\n", x);
+//     // if(x < 214748364)
+//     // {
+//     //     printf("yes");
+//     // }
+//     // int x = -2147483647;
+//     // printf("%i", x);
+// }
