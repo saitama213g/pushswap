@@ -1,7 +1,5 @@
-#include <stdlib.h>
-
+int	print_char(int c);
 int main(void)
 {
-    char *s = malloc(3);
-    system("leaks a.out");
+    print_char('j');
 }
