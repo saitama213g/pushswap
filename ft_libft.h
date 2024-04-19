@@ -6,6 +6,7 @@
 typedef struct stack_arr{
 	struct stack_arr *next;
 	int nmbr;
+	int index;
 }stack_arr;
 
 int			ft_atoi(char *s);
