@@ -37,7 +37,36 @@ stack_arr	*duplicate_stack(stack_arr *arr)
 		dup = dup->next;
 		arr = arr->next;
 	}
+
 	return tmp;
+}
+
+
+void sort_stack(stack_arr *arr)
+{
+	int i = 0;
+	int tmp = 0;
+	stack_arr *tmp = arr;
+	int size = ft_lstsize(arr);
+
+
+	while (size > 1)
+	{
+		i = 0;
+		arr = tmp;
+		while (i +1 < size)
+		{
+			if (arr->nmbr > arr->next->nmbr)
+			{
+				tmp =  arr->nmbr;
+				arr->nmbr = arr->next;
+				arr->next->nmbr = tmp;
+			}
+			i++;
+		}
+		arr=arr->next;
+		size--;
+	}
 }
 // static void	free_linked(stack_arr *arr)
 // {
@@ -51,18 +80,18 @@ stack_arr	*duplicate_stack(stack_arr *arr)
 // 	}
 // }
 
-static void	free_arr(char **str)
-{
-	int	i;
+// static void	free_arr(char **str)
+// {
+// 	int	i;
 
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
-}
+// 	i = 0;
+// 	while (str[i])
+// 	{
+// 		free(str[i]);
+// 		i++;
+// 	}
+// 	free(str);
+// }
 
 
 // void first_step(stack_arr *arr)
@@ -103,14 +132,14 @@ int	main(int ac, char **av)
 		{
 			str = ft_split(av[i]);
 			ft_add_tostack(&arr, str);
-			free_arr(str);
-			print_arr(duplicate_stack(arr));
+			// free_arr(str);
+			// print_arr(duplicate_stack(arr));
 			// first_step(arr);
 			// str = NULL;
 			i++;
 		}
 	}
-	// print_arr(arr);
+	print_arr(arr);
 	// free_linked(arr);
 	// system("valgrind ./push_swap");
 	// arr = NULL;
