@@ -49,28 +49,29 @@ static void	free_arr(char **str)
 }
 
 
-void first_step(stack_arr *arr)
-{
-	stack_arr *dup;
-	dup = duplicate_stack(arr);
-	sort_stack(dup);
-	while (arr)
-	{
-		arr->index = give_index(arr->nmbr, dup);
-		arr = arr->next;
-	}
-}
+// void first_step(stack_arr *arr)
+// {
+// 	stack_arr *dup;
+// 	dup = duplicate_stack(arr);
+// 	sort_stack(dup);
+// 	while (arr)
+// 	{
+// 		arr->index = give_index(arr->nmbr, dup);
+// 		arr = arr->next;
+// 	}
+// }
 
-int second_step(stack_arr *arr)
-{
-	return (1);
-}
+// int second_step(stack_arr *arr)
+// {
+// 	return (1);
+// }
 
 
-int last_step(stack_arr *arr)
-{
-	return (2);
-}
+// int last_step(stack_arr *arr)
+// {
+// 	return (2);
+// }
+
 int	main(int ac, char **av)
 {
 	stack_arr	*arr;

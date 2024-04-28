@@ -98,12 +98,12 @@ static char	**ft_strs(char **str, char *s, int j)
 
 char	**ft_split(char const *s)
 {
-	int		i;
+	// int		i;
 	char	**str;
 
 	if (!s)
 		return (NULL);
-	i = 0;
+	// i = 0;
 	str = malloc(sizeof(char *) * (counting_words((char *)s) + 1));
 	if (!str)
 		return (NULL);
