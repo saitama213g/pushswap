@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:32:51 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/29 13:48:47 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/04/29 16:44:44 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,12 @@ char		**ft_split(char const *s);
 size_t		ft_strlen(const char *s);
 int			last_element(stack_arr *arr);
 stack_arr	*duplicate_stack(stack_arr *arr);
+void		sa(stack_arr *arr, char a_b);
+void		ss(stack_arr *arra, stack_arr *arrb);
+void		pa(stack_arr **arra, stack_arr **arrb, char a_b);
+void		ra(stack_arr *arr, char a_b);
+void		rr(stack_arr *arra, stack_arr *arrb);
+void		rra(stack_arr *arr, char a_b);
+void    rrr(stack_arr *arra, stack_arr *arrb);
 
 #endif

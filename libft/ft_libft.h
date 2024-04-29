@@ -20,5 +20,7 @@ int			ft_lstsize(stack_arr *lst);
 char		**ft_split(char const *s);
 size_t		ft_strlen(const char *s);
 int			last_element(stack_arr *arr);
+int			ft_printf(char const	*s, ...);
+
 
 #endif

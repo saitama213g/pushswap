@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/29 16:04:05 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/04/29 17:54:45 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,13 +107,25 @@ static void	free_arr(char **str)
 // 	return (2);
 // }
 
+// void sort_3(stack_arr *a)
+// {
+// 	if (is_sorted(a))
+// 		return;
+// 	else(a->nmbr < a->next->nmbr && a->next->index < a->next->next->nmbr)
+// 	{
+// 		rra()
+// 	}
+// }
+
 int	main(int ac, char **av)
 {
-	stack_arr	*arr;
+	stack_arr	*b;
+	stack_arr	*a;
 	char		**str;
 	int			i;
 
-	arr = NULL;
+	a = NULL;
+	b = NULL;
 	i = 1;
 	// check_error(ac, av);
 	if (ac >= 2)
@@ -121,17 +133,21 @@ int	main(int ac, char **av)
 		while (i < ac)
 		{
 			str = ft_split(av[i]);
-			ft_add_tostack(&arr, str);
+			ft_add_tostack(&a, str);
+			print_arr(a);
+			// ft_printf("helo\n");
+			// sa(a, 'a');
 			free_arr(str);
 			// print_arr(duplicate_stack(arr));
 			// first_step(arr);
 			// str = NULL;
 			i++;
 		}
-		print_arr(arr);
-		free_linked(arr);
+		// print_arr(a);
+		// ft_printf("helo\n");
+		free_linked(a);
 	}
-	system("leaks push_swap");
+	// system("leaks push_swap");
 	// printf("%s", av[0]);
 	// system("valgrind ./push_swap");
 	// arr = NULL;

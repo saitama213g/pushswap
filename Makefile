@@ -2,7 +2,7 @@ CC=cc
 HEAD= push_mandatory/push_mandatory.h
 CFLAGS= -Wall -Wextra -Werror
 NAME= push_swap
-SRC= push_mandatory/free_linked.c push_mandatory/push_swap.c
+SRC= push_mandatory/push_swap.c push_mandatory/free_linked.c push_mandatory/ft_instruction.c
 
 OBJ=$(SRC:.c=.o)
 all: $(NAME)

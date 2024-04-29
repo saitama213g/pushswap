@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:15:23 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/01 14:15:24 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/04/29 17:49:43 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void print_arr(stack_arr *arr)
 {
     while (arr)
     {
-        printf("%i\n", arr->nmbr);
+        ft_printf("%i\n", arr->nmbr);
         arr= arr->next;
     }
 }
