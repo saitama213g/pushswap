@@ -6,11 +6,11 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/29 12:52:53 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/04/29 16:04:05 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libft.h"
+#include "push_mandatory.h"
 
 static void	ft_add_tostack(stack_arr **arr, char	**str)
 {
@@ -69,17 +69,6 @@ stack_arr	*duplicate_stack(stack_arr *arr)
 // 	}
 // }
 
-static void	free_linked(stack_arr *arr)
-{
-	stack_arr	*tmp;
-
-	while (arr)
-	{
-		tmp = arr->next;
-		free(arr);
-		arr = tmp;
-	}
-}
 
 static void	free_arr(char **str)
 {
@@ -142,6 +131,7 @@ int	main(int ac, char **av)
 		print_arr(arr);
 		free_linked(arr);
 	}
+	system("leaks push_swap");
 	// printf("%s", av[0]);
 	// system("valgrind ./push_swap");
 	// arr = NULL;
