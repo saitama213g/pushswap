@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:01:11 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/29 17:47:55 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:47:22 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void ss(stack_arr *arra, stack_arr *arrb)
 	ft_printf("ss\n");
 }
 
-void pa(stack_arr **arra, stack_arr **arrb, char a_b)
+void	pa(stack_arr **arra, stack_arr **arrb, char a_b)
 {
 	if (!arra || !arrb)
 		return;
@@ -47,7 +47,7 @@ void pa(stack_arr **arra, stack_arr **arrb, char a_b)
 		ft_printf("pb\n");
 }
 
-void ra(stack_arr *arr, char a_b)
+void	ra(stack_arr *arr, char a_b)
 {
 	int tmp = last_element(arr);
 	int first;
@@ -75,9 +75,9 @@ void rr(stack_arr *arra, stack_arr *arrb)
 
 void rra(stack_arr *arr, char a_b)
 {
+	int first = arr->nmbr;
 	if (!arr)
 		return;
-	int first = arr->nmbr;
 	while (arr->next)
 	{
 		arr->nmbr = arr->next->nmbr;
@@ -90,7 +90,7 @@ void rra(stack_arr *arr, char a_b)
 		ft_printf("rrb\n");
 }
 
-void    rrr(stack_arr *arra, stack_arr *arrb)
+void	rrr(stack_arr *arra, stack_arr *arrb)
 {
 	if (!arra || !arrb)
 		return;

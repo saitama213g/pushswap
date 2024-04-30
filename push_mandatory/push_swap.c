@@ -6,23 +6,11 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/30 11:39:33 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/04/30 17:42:11 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_mandatory.h"
-
-static void ft_add_tostack(stack_arr **arr, char	**str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		list_add_front(arr, ft_atoi(str[i]));
-		i++;
-	}
-}
 
 stack_arr	*duplicate_stack(stack_arr *arr)
 {
@@ -41,14 +29,12 @@ stack_arr	*duplicate_stack(stack_arr *arr)
 	return tmp;
 }
 
-
 // void sort_stack(stack_arr *arr)
 // {
 // 	int i = 0;
 // 	int tmp = 0;
 // 	stack_arr *tmp = arr;
 // 	int size = ft_lstsize(arr);
-
 
 // 	while (size > 1)
 // 	{
@@ -107,33 +93,6 @@ void	free_arr(char **str)
 // 	return (2);
 // }
 
-// void sort_3(stack_arr *a)
-// {
-// 	stack_arr *tmp;
-
-// 	tmp = a;
-// 	int biggest = tmp->nmbr;
-// 	// if (is_sorted(a))
-// 	// 	return;
-	
-// 	while (tmp)
-// 	{
-// 		if(biggest < a->nmbr)
-// 			biggest = a->nmbr;	
-// 		tmp = tmp->next;
-// 	}
-// 	if (a->nmbr == biggest)
-// 	{
-// 		rra(a, 'a');
-// 	}else if (a->next->nmbr == biggest)
-// 	{
-// 		ra(a, 'a');
-// 	}
-// 	if (a->nmbr > a->next->nmbr)
-// 	{
-// 		sa(a, 'a');
-// 	}
-// }
 
 // void push_swap(int ac, char **av)
 
@@ -157,18 +116,23 @@ int	main(int ac, char **av)
 		{
 			str = ft_split(av[i]);
 			ft_add_tostack(&a, str);
-			// check_dup(a, str);
-			// ft_printf("helo\n");
 			free_arr(str);
-			// print_arr(duplicate_stack(arr));
-			// first_step(arr);
-			// str = NULL;
 			i++;
 		}
+		sort_5(a, b);
 		print_arr(a);
-		printf("\n");
-		printf("\n");
-		print_arr(a);
+		// give_index(a);
+		// give_position(a);
+		// print_arr_position(a);
+		// pa(&b, &a, 'b');
+		// push_smaller(a, b);
+		// pa(&b, &a, 'b');
+		// push_smaller(a, b);
+		// sort_5(a,b);
+		// print_arr_index(a);
+		// sort_5(a);
+		// print_arr(b);
+		// print_arr(a);
 		// sa(a, 'a');
 		// ft_printf("helo\n");
 		free_linked(a);

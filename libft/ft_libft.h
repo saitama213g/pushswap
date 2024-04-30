@@ -7,6 +7,7 @@
 
 typedef struct stack_arr{
 	struct stack_arr *next;
+	int position;
 	int nmbr;
 	int index;
 }stack_arr;

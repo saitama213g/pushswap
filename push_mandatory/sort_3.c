@@ -6,13 +6,13 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 11:27:26 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/30 11:38:00 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/04/30 17:35:08 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_mandatory.h"
 
-void sort_3(stack_arr *a)
+void	sort_3(stack_arr *a)
 {
 	stack_arr *tmp;
 
@@ -20,7 +20,7 @@ void sort_3(stack_arr *a)
 	int biggest = tmp->nmbr;
 	// if (is_sorted(a))
 	// 	return;
-	
+
 	while (tmp)
 	{
 		if (biggest < tmp->nmbr)

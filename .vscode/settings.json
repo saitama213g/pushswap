@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "push_mandatory.h": "c",
+        "stdio.h": "c"
+    }
+}

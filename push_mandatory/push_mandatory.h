@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:32:51 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/30 11:31:36 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:06:00 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 typedef struct stack_arr{
 	struct stack_arr *next;
+	int position;
 	int nmbr;
 	int index;
 }stack_arr;
@@ -41,5 +42,13 @@ void		rr(stack_arr *arra, stack_arr *arrb);
 void		rra(stack_arr *arr, char a_b);
 void		rrr(stack_arr *arra, stack_arr *arrb);
 void		sort_3(stack_arr *a);
+void		ft_add_tostack(stack_arr **arr, char	**str);
+void		print_arr_position(stack_arr *a);
+void		sort_5(stack_arr *a, stack_arr *b);
+void		update_ip(stack_arr *a);
+void		give_index(stack_arr *a);
+void		push_smaller(stack_arr *a, stack_arr *b);
+void		give_position(stack_arr *a);
+
 
 #endif

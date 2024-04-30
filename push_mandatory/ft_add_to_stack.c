@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_add_front.c                                :+:      :+:    :+:   */
+/*   ft_add_to_stack.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/28 15:01:19 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/30 13:14:13 by aet-tale         ###   ########.fr       */
+/*   Created: 2024/04/30 13:07:12 by aet-tale          #+#    #+#             */
+/*   Updated: 2024/04/30 13:07:43 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libft.h"
+#include "push_mandatory.h"
 
-void list_add_front(stack_arr **head, int data)
+void ft_add_tostack(stack_arr **arr, char	**str)
 {
-    stack_arr *tmp;
+	int i;
 
-    if (!head)
-        return;
-    tmp = *head;
-    *head = malloc(sizeof(stack_arr));
-    (*head)->nmbr = data;
-    (*head)->next = tmp;
+	i = 0;
+	while (str[i])
+	{
+		list_add_front(arr, ft_atoi(str[i]));
+		i++;
+	}
 }
