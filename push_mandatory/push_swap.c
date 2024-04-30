@@ -6,15 +6,15 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/29 17:54:45 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/04/30 11:39:33 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_mandatory.h"
 
-static void	ft_add_tostack(stack_arr **arr, char	**str)
+static void ft_add_tostack(stack_arr **arr, char	**str)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (str[i])
@@ -70,7 +70,7 @@ stack_arr	*duplicate_stack(stack_arr *arr)
 // }
 
 
-static void	free_arr(char **str)
+void	free_arr(char **str)
 {
 	int	i;
 
@@ -109,41 +109,67 @@ static void	free_arr(char **str)
 
 // void sort_3(stack_arr *a)
 // {
-// 	if (is_sorted(a))
-// 		return;
-// 	else(a->nmbr < a->next->nmbr && a->next->index < a->next->next->nmbr)
+// 	stack_arr *tmp;
+
+// 	tmp = a;
+// 	int biggest = tmp->nmbr;
+// 	// if (is_sorted(a))
+// 	// 	return;
+	
+// 	while (tmp)
 // 	{
-// 		rra()
+// 		if(biggest < a->nmbr)
+// 			biggest = a->nmbr;	
+// 		tmp = tmp->next;
+// 	}
+// 	if (a->nmbr == biggest)
+// 	{
+// 		rra(a, 'a');
+// 	}else if (a->next->nmbr == biggest)
+// 	{
+// 		ra(a, 'a');
+// 	}
+// 	if (a->nmbr > a->next->nmbr)
+// 	{
+// 		sa(a, 'a');
 // 	}
 // }
+
+// void push_swap(int ac, char **av)
 
 int	main(int ac, char **av)
 {
 	stack_arr	*b;
 	stack_arr	*a;
+	int err;
 	char		**str;
 	int			i;
 
 	a = NULL;
 	b = NULL;
+	err = 0;
 	i = 1;
 	// check_error(ac, av);
+	// push_swap(ac, av);
 	if (ac >= 2)
 	{
 		while (i < ac)
 		{
 			str = ft_split(av[i]);
 			ft_add_tostack(&a, str);
-			print_arr(a);
+			// check_dup(a, str);
 			// ft_printf("helo\n");
-			// sa(a, 'a');
 			free_arr(str);
 			// print_arr(duplicate_stack(arr));
 			// first_step(arr);
 			// str = NULL;
 			i++;
 		}
-		// print_arr(a);
+		print_arr(a);
+		printf("\n");
+		printf("\n");
+		print_arr(a);
+		// sa(a, 'a');
 		// ft_printf("helo\n");
 		free_linked(a);
 	}

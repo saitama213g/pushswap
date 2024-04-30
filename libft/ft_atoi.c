@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:20:48 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/02 01:16:19 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/04/29 18:45:14 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_atoi(char *s)
 		s++;
 	}
 	if (!is_digit(*s))
-	{		
+	{
 		printf("ERROR");
 		exit(0);
 	}
@@ -66,7 +66,6 @@ int	ft_atoi(char *s)
 	{
 		if (!is_digit(*s))
 		{
-			
 			ft_printf("ERROR");
 			exit(0);
 		}

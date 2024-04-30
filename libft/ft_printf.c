@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 18:24:26 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/02 01:11:17 by aet-tale         ###   ########.fr       */
+/*   Created: 2023/12/30 15:32:41 by aet-tale          #+#    #+#             */
+/*   Updated: 2024/04/29 18:53:12 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_printf(char const	*s, ...)
 {
-	int	i;
+	va_list	ap;
+	int		count;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	if (write(1, 0, 0) == -1)
+		return (-1);
+	va_start(ap, s);
+	count = 0;
+	while (*s)
+	{
+		if (*s == '%' && *(s + 1))
+			count += print_format(*(++s), ap);
+		else if (*s != '%')
+			count += write(1, s, 1);
+		s++;
+	}
+	va_end(ap);
+	return (count);
 }

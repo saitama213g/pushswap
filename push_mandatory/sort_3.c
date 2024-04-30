@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   sort_3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 19:47:28 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/29 16:35:44 by aet-tale         ###   ########.fr       */
+/*   Created: 2024/04/30 11:27:26 by aet-tale          #+#    #+#             */
+/*   Updated: 2024/04/30 11:38:00 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "push_mandatory.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+void sort_3(stack_arr *a)
+{
+	stack_arr *tmp;
 
-int	ft_printf(const char	*s, ...);
-int	print_format(char specifier, va_list	ap);
-int	print_char(int c);
-int	print_str(char	*s);
-int	print_digit(long d, int base, int capital);
-int	print_address(void	*p);
-int	print_str(char *s);
-
-#endif
+	tmp = a;
+	int biggest = tmp->nmbr;
+	// if (is_sorted(a))
+	// 	return;
+	
+	while (tmp)
+	{
+		if (biggest < tmp->nmbr)
+			biggest = tmp->nmbr;	
+		tmp = tmp->next;
+	}
+	if (a->nmbr == biggest)
+	{
+		ra(a, 'a');
+	}else if (a->next->nmbr == biggest)
+	{
+		rra(a, 'a');
+	}
+	if (a->nmbr > a->next->nmbr)
+	{
+		sa(a, 'a');
+	}
+}

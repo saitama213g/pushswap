@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:32:51 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/29 16:44:44 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/04/30 11:31:36 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void		pa(stack_arr **arra, stack_arr **arrb, char a_b);
 void		ra(stack_arr *arr, char a_b);
 void		rr(stack_arr *arra, stack_arr *arrb);
 void		rra(stack_arr *arr, char a_b);
-void    rrr(stack_arr *arra, stack_arr *arrb);
+void		rrr(stack_arr *arra, stack_arr *arrb);
+void		sort_3(stack_arr *a);
 
 #endif

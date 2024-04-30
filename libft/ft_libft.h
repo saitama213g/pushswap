@@ -2,6 +2,8 @@
 #define FT_LIBFT_H
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
+#include <unistd.h>
 
 typedef struct stack_arr{
 	struct stack_arr *next;
@@ -9,6 +11,13 @@ typedef struct stack_arr{
 	int index;
 }stack_arr;
 
+int			ft_printf(const char	*s, ...);
+int			print_format(char specifier, va_list	ap);
+int			print_char(int c);
+int			print_str(char	*s);
+int			print_digit(long d, int base, int capital);
+int			print_address(void	*p);
+int			print_str(char *s);
 int			ft_atoi(char *s);
 void		ft_lstadd_front(stack_arr **lst, stack_arr *new);
 void		list_remove_first(stack_arr **arr);
