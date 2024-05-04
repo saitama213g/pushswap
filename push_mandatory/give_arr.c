@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   give_arr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/01 19:28:21 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/02 20:03:30 by aet-tale         ###   ########.fr       */
+/*   Created: 2024/05/02 17:04:52 by aet-tale          #+#    #+#             */
+/*   Updated: 2024/05/02 17:10:58 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_mandatory.h"
 
-void push_swap(stack_arr **a)
+stack_arr	*give_arr(int ac, char **av)
 {
-	stack_arr *b;
+	char **str;
+	stack_arr *a;
+	int i;
 
-	int size = ft_lstsize(a);
-	if (size == 2)
+	i = 1;
+	str = NULL;
+	a = NULL;
+	if (ac >= 2)
 	{
-		if ((*a)->nmbr > (*a)->next->next)
-			sa(a, 'a');
+		while (i < ac)
+		{
+			// write(1, "hello\n", 6);
+			str = ft_split(av[i]);
+			ft_add_tostack(&a, str);
+			free_arr(str);
+			i++;
+		}
 	}
-	else if (size == 3)
-		sort_3(a);
-	else if (size == 4)
-	{
-		push_smaller(a, b);
-		pa(&b, a, 'b');
-		sort_3(a);
-		pa(a, &b, 'a');
-	}
-	else if (size == 5)
-		sort_5(a, b);
-	else if(size > 5)
-		best_move_sort(a, b);
+	return a;
 }

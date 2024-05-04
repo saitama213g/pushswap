@@ -1,38 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/01 19:28:21 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/02 20:03:30 by aet-tale         ###   ########.fr       */
+/*   Created: 2024/05/02 17:03:17 by aet-tale          #+#    #+#             */
+/*   Updated: 2024/05/02 17:29:18 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_mandatory.h"
 
-void push_swap(stack_arr **a)
-{
-	stack_arr *b;
 
-	int size = ft_lstsize(a);
-	if (size == 2)
+void check_overflow_sign(char **str)
+{
+	int i = 0;
+	while (str[i])
 	{
-		if ((*a)->nmbr > (*a)->next->next)
-			sa(a, 'a');
+		ft_atoi(str[i], str);
+		i++;
 	}
-	else if (size == 3)
-		sort_3(a);
-	else if (size == 4)
+}
+
+void check_error(int ac, char **av)
+{
+	int i;
+	char **str;
+
+	i = 1;
+	str = NULL;
+	if (ac > 2)
 	{
-		push_smaller(a, b);
-		pa(&b, a, 'b');
-		sort_3(a);
-		pa(a, &b, 'a');
+		while (i < ac)
+		{
+			str = ft_split(av[i]);
+			if (str == NULL || !str[0])
+			{
+				free_arr(str);
+				write(2, "ERROR\n", 6);
+				exit(0);
+			}
+			check_overflow_sign(str);
+			free_arr(str);
+			i++;
+		}
+	}else {
+		return;
 	}
-	else if (size == 5)
-		sort_5(a, b);
-	else if(size > 5)
-		best_move_sort(a, b);
 }

@@ -1,6 +1,6 @@
 {
     "files.associations": {
-        "push_mandatory.h": "c",
-        "stdio.h": "c"
+        "ft_libft.h": "c",
+        "push_mandatory.h": "c"
     }
 }

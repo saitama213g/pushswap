@@ -6,42 +6,29 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:20:48 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/29 18:45:14 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/03 19:26:41 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libft.h"
 
-
-static int	is_digit(char s)
-{
-	if (s >= '0' && s <= '9')
-		return (1);
-	return (0);
-}
-
-static int	is_space(char s)
-{
-	if (s == ' ' || (s >= 9 && s <= 13))
-		return (1);
-	return (0);
-}
-
-static void	check_o(int number, int tmp, int sign)
+static void	check_o(int number, int tmp, int sign, char **str)
 {
 	if (number < tmp && sign == 1)
 	{
-		ft_printf("ERROR");
+		free_arr(str);
+		write(2, "ERROR\n", 6);
 		exit(0);
 	}
 	else if (number > tmp && sign == -1)
 	{
-		ft_printf("ERROR");
+		free_arr(str);
+		write(2, "ERROR\n", 6);
 		exit(0);
 	}
 }
 
-int	ft_atoi(char *s)
+int	ft_atoi(char *s, char **str)
 {
 	int	number;
 	int	sign;
@@ -49,6 +36,7 @@ int	ft_atoi(char *s)
 
 	number = 0;
 	sign = 1;
+	(void)str;
 	while (is_space(*s))
 		s++;
 	if (*s == '-' || *s == '+')
@@ -58,20 +46,14 @@ int	ft_atoi(char *s)
 		s++;
 	}
 	if (!is_digit(*s))
-	{
-		printf("ERROR");
-		exit(0);
-	}
+		print_err(str);
 	while (*s)
 	{
 		if (!is_digit(*s))
-		{
-			ft_printf("ERROR");
-			exit(0);
-		}
+			print_err(str);
 		tmp = number;
 		number = 10 * number + (sign) * (*s - 48);
-		check_o(number, tmp, sign);
+		check_o(number, tmp, sign, str);
 		s++;
 	}
 	return (number);

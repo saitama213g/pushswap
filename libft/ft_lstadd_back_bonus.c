@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/01 19:28:21 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/02 20:03:30 by aet-tale         ###   ########.fr       */
+/*   Created: 2023/12/15 11:00:51 by aet-tale          #+#    #+#             */
+/*   Updated: 2024/05/01 21:29:13 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_mandatory.h"
+#include "ft_libft.h"
 
-void push_swap(stack_arr **a)
+void	ft_lstadd_back(stack_arr **lst, stack_arr *new)
 {
-	stack_arr *b;
+	stack_arr	*list;
 
-	int size = ft_lstsize(a);
-	if (size == 2)
+	if (*lst == NULL)
 	{
-		if ((*a)->nmbr > (*a)->next->next)
-			sa(a, 'a');
+		*lst = new;
+		return ;
 	}
-	else if (size == 3)
-		sort_3(a);
-	else if (size == 4)
+	list = *lst;
+	while (list->next)
 	{
-		push_smaller(a, b);
-		pa(&b, a, 'b');
-		sort_3(a);
-		pa(a, &b, 'a');
+		list = list->next;
 	}
-	else if (size == 5)
-		sort_5(a, b);
-	else if(size > 5)
-		best_move_sort(a, b);
+	list->next = new;
 }

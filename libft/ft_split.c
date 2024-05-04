@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 15:05:42 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/29 18:03:12 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/02 16:52:09 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,6 @@ static void	free_str(char	**str, int j)
 		free(str[j]);
 		j--;
 	}
-}
-
-int is_space(char s)
-{
-	if ((s>=9 && s<=13) || s == ' ')
-		return (1);
-	return (0);
 }
 
 static char	*returning_string(char *s)

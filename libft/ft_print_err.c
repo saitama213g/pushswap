@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_print_err.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/01 19:28:21 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/02 20:03:30 by aet-tale         ###   ########.fr       */
+/*   Created: 2024/05/02 16:46:04 by aet-tale          #+#    #+#             */
+/*   Updated: 2024/05/02 16:53:17 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_mandatory.h"
+#include "ft_libft.h"
 
-void push_swap(stack_arr **a)
+void	print_err(char **str)
 {
-	stack_arr *b;
-
-	int size = ft_lstsize(a);
-	if (size == 2)
-	{
-		if ((*a)->nmbr > (*a)->next->next)
-			sa(a, 'a');
-	}
-	else if (size == 3)
-		sort_3(a);
-	else if (size == 4)
-	{
-		push_smaller(a, b);
-		pa(&b, a, 'b');
-		sort_3(a);
-		pa(a, &b, 'a');
-	}
-	else if (size == 5)
-		sort_5(a, b);
-	else if(size > 5)
-		best_move_sort(a, b);
+	free_arr(str);
+	write(2, "ERROR\n", 6);
+	exit(0);
 }

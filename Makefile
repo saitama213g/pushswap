@@ -1,18 +1,18 @@
 CC=cc
+LIBFT=libft/ft_libft.h
 HEAD= push_mandatory/push_mandatory.h
 CFLAGS= -Wall -Wextra -Werror
 NAME= push_swap
-SRC= push_mandatory/free_linked.c push_mandatory/push_swap.c push_mandatory/ft_instruction.c \
-	 push_mandatory/sort_3.c push_mandatory/ft_add_to_stack.c push_mandatory/sort_5.c
+SRC= push_mandatory/free_linked.c push_mandatory/main.c push_mandatory/ft_instruction.c push_mandatory/is_sorted.c\
+	 push_mandatory/sort_3.c push_mandatory/ft_add_to_stack.c push_mandatory/ft_check_duplicate.c  push_mandatory/give_arr.c\
+	 push_mandatory/check_error.c push_mandatory/sort_5.c
 
 OBJ=$(SRC:.c=.o)
 all: $(NAME)
 
-$(NAME): ./libft/libft.a $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) ./libft/libft.a -o $(NAME)
-
-./libft/libft.a:
+$(NAME):  $(OBJ)
 	make -C libft/
+	$(CC) $(CFLAGS) $(OBJ) ./libft/libft.a -o $(NAME)
 
 $(OBJ) :$(HEAD)
 

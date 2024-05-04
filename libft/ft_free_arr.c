@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_free_arr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/01 19:28:21 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/02 20:03:30 by aet-tale         ###   ########.fr       */
+/*   Created: 2024/05/02 11:47:57 by aet-tale          #+#    #+#             */
+/*   Updated: 2024/05/02 11:54:47 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_mandatory.h"
+#include "ft_libft.h"
 
-void push_swap(stack_arr **a)
+void	free_arr(char **str)
 {
-	stack_arr *b;
+	int	i;
 
-	int size = ft_lstsize(a);
-	if (size == 2)
+	i = 0;
+	while (str[i])
 	{
-		if ((*a)->nmbr > (*a)->next->next)
-			sa(a, 'a');
+		free(str[i]);
+		i++;
 	}
-	else if (size == 3)
-		sort_3(a);
-	else if (size == 4)
-	{
-		push_smaller(a, b);
-		pa(&b, a, 'b');
-		sort_3(a);
-		pa(a, &b, 'a');
-	}
-	else if (size == 5)
-		sort_5(a, b);
-	else if(size > 5)
-		best_move_sort(a, b);
+	free(str);
 }

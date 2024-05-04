@@ -6,25 +6,15 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:56:43 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/30 17:42:30 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/03 19:28:48 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_mandatory.h"
 
-void print_arr_position(stack_arr *a)
-{
-	while (a)
-	{
-		printf("%i\n", a->position);
-		a = a->next;
-	}
-}
-
 void give_position(stack_arr *a)
 {
 	int size = ft_lstsize(a);
-	printf("%i\n", size);
 	while (a)
 	{
 		if (a->index <= size/2)
@@ -46,13 +36,14 @@ void give_index(stack_arr *a)
 	}
 }
 
-void	push_smaller(stack_arr *a, stack_arr *b)
+void	push_smaller(stack_arr **a, stack_arr **b)
 {
 	stack_arr *smaller;
 	stack_arr *tmp;
 
-	smaller = a;
-	tmp = a;
+	smaller = *a;
+	tmp = *a;
+	(void)b;
 	while (tmp)
 	{
 		if (smaller->nmbr > tmp->nmbr)
@@ -63,34 +54,31 @@ void	push_smaller(stack_arr *a, stack_arr *b)
 	// print_arr(tmp);
 	if (smaller->position == 0)
 	{
-		while (smaller != a)
+		while (smaller->nmbr != (*a)->nmbr)
 			ra(a, 'a');
-	}else if (smaller->position == 1)
+	}else if ( smaller->position == 1)
 	{
-		while (smaller != a)
+		while (smaller->nmbr != (*a)->nmbr)
 			rra(a, 'a');
 	}
-	// print_arr(a);
-	pa(&b, &a, 'b');
-	// pa(&b, &tmp, 'b');
 }
 
-void update_ip(stack_arr *a)
-{
-	give_index(a);
-	give_position(a);
-}
+// void update_ip(stack_arr *a)
+// {
+// 	give_index(a);
+// 	give_position(a);
+// }
 
-void sort_5(stack_arr *a, stack_arr *b)
+void sort_5(stack_arr **a, stack_arr **b)
 {
-	// (void)a;
-	update_ip(a);
+	if (ft_lstsize(*a) != 5)
+		return;
+	give_position(*a);
 	push_smaller(a, b);
-	update_ip(a);
+	pa(b, a, 'b');
 	push_smaller(a, b);
+	pa(b, a, 'b');
 	sort_3(a);
-	pa(&a, &b,'a');
-	pa(&a, &b, 'a');
-	update_ip(a);
-	
+	pa(a, b, 'a');
+	pa(a, b, 'a');
 }
