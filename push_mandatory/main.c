@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/04 19:18:27 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/05 11:31:36 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,35 +126,116 @@ void keep_3(stack_arr **a, stack_arr **b)
 {
 	while (ft_lstsize(*a) > 3)
 	{
-		if ((*a)->nmbr < average(a))
+		if ((*a)->nmbr < ft_average(*a))
 			pa(b, a, 'b');
 	}
 	sort_3(a);
 }
 
-void	find_best_move(stack_arr **a, stack_arr **b)
+int bigger(stack_arr *a)
 {
-	stack_arr *tmp_a;
-	stack_arr *tmp_b;
-	stack_arr *smallest_bi;
-
-	tmp_b = *b;
-	tmp_a = *a;
-	smallest_bi = (*a);
-	while (tmp_b)
+	int bigger = a->nmbr;
+	while (a)
 	{
-		tmp_a = *a;
-		while (tmp_a)
-		{
-			if (tmp_a->nmbr > tmp_b->nmbr && smallest_bi->nmbr >= tmp_a->nmbr)
-				smallest_bi = tmp_a;
-			tmp_a = tmp_a->next;
-		}
-		tmp_a->besto = smallest_bi;
-		tmp_b = tmp_b->next;
+		if (a->nmbr > bigger)
+			bigger = a->nmbr;
+		a = a->next;
+	}
+	return bigger;
+}
+
+// stack_arr *smallest(stack_arr *a)
+// {
+// 	stack_arr *smallest = a->nmbr;
+// 	while (a)
+// 	{
+// 		if (a->nmbr < smallest->nmbr)
+// 			smallest = a;
+// 		a = a->next;
+// 	}
+// 	return smallest;
+// }
+
+// void	find_best_move(stack_arr **a, stack_arr **b)
+// {
+//     stack_arr *tmp_a;
+//     stack_arr *tmp_b;
+//     stack_arr *smallest_bi;
+
+//     if (!*b)
+// 		return;  // If b is NULL, return immediately
+// 	smallest_bi->nmbr = bigger(*a);
+// 	if (smallest_bi->nmbr < (*b)->nmbr)
+// 	{
+// 		(*b)->besto = smallest(*a);
+// 		return;
+// 	}
+//     tmp_b = *b;
+//     tmp_a = *a;
+//     while (tmp_a)
+//     {
+//         if ((smallest_bi == NULL || tmp_a->nmbr < smallest_bi->nmbr) && tmp_a->nmbr > tmp_b->nmbr)
+// 			smallest_bi = tmp_a;
+//         tmp_a = tmp_a->next;
+// 	}
+//     tmp_b->besto = smallest_bi;
+// }
+
+void	get_cost(stack_arr *a)
+{
+	stack_arr *tmp;
+
+	if (!a)
+		return;
+	give_index(a);
+	give_position(a);
+	tmp = a;
+	while (tmp)
+	{
+		if(tmp->position == 0)
+			tmp->cost = tmp->index;
+		else
+			tmp->cost = ft_lstsize(a) - tmp->index;
+		tmp = tmp->next;
 	}
 }
 
+// stack_arr give_best_one_to_push(stack_arr *a, stack_arr *b)
+// {
+// }
+// void	find_best_move(stack_arr **a, stack_arr **b)
+// {
+// 	stack_arr *tmp_a;
+// 	stack_arr *tmp_b;
+// 	stack_arr *smallest_bi;
+
+// 	tmp_b = *b;
+// 	// tmp_a = *a;
+// 	smallest_bi = (*a);
+// 	// while (tmp_b)
+// 	// {
+// 		tmp_a = *a;
+// 		while (tmp_a)
+// 		{
+// 			if (tmp_a->nmbr > tmp_b->nmbr && smallest_bi->nmbr >= tmp_a->nmbr)
+// 			{
+// 				smallest_bi = tmp_a;
+// 				tmp_b->besto = smallest_bi;
+// 			}
+// 			tmp_a = tmp_a->next;
+// 		}
+// 		// tmp_b = tmp_b->next;
+// 	// }
+// }
+
+// void print_arr1(stack_arr *arr)
+// {
+// 	while (arr)
+// 	{
+// 		ft_printf("%i\n", arr->nmbr);
+// 		arr = arr->next;
+// 	}
+// }
 
 void print_best_move(stack_arr *a)
 {
@@ -164,7 +245,16 @@ void print_best_move(stack_arr *a)
 		a = a->next;
 	}	
 }
-int main(int ac, char **av)
+void print_cost(stack_arr *arr)
+{	
+	while (arr)
+	{
+		ft_printf("position is %i\n", arr->cost);
+		arr = arr->next;
+	}
+}
+
+int	main(int ac, char **av)
 {
 	stack_arr	*arr;
 	stack_arr	*arrb;
@@ -172,28 +262,30 @@ int main(int ac, char **av)
 	check_error(ac, av);
 	arr = give_arr(ac, av);
 	arrb = NULL;
+	// list_add_back(&arrb, 32);
+	// list_add_back(&arrb, 12);
+	// list_add_back(&arrb, 1);
 	// system("leaks push_swap");
-	atexit(leak);
+	// atexit(leak);
 	if (duplicated_arr(arr))
 	{
 		free_linked(arr);
-		write(2, "ERROR\n", 6);
+		write(2, "duplicated\n", 11);
 		exit(1);
 	}
-	else if(is_sorted(arr))
+	else if (is_sorted(arr))
 	{
 		write(1, "sorted\n", 7);
 		free_linked(arr);
 		exit(1);
 	}
-	find_best_move(&arr, &arrb);
-	// give_cost(&arr, &arrb);
-	// keep_3(&arr, &arrb);
+	list_add_back(&arrb, 10);
+	list_add_back(&arrb, 13);
+	list_add_back(&arrb, 15);
+	list_add_back(&arrb, 1);
+
+	// get_cost(arr);
+	// print_cost(arr);
 	// print_arr(arr);
-	// sort_5(&arr, &arrb);
-	// print_arr(arr);
-	// push_swap(arr);
-	// print_arr(arr);
-	// sort_3(&arr);
 	free_linked(arr);
 }

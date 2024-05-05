@@ -7,9 +7,11 @@
 
 typedef struct stack_arr{
 	struct stack_arr *next;
+	struct stack_arr *besto;
 	int position;
 	int nmbr;
 	int index;
+	int cost;
 }stack_arr;
 
 int			ft_printf(const char	*s, ...);

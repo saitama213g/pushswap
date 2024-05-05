@@ -5,7 +5,7 @@ CFLAGS= -Wall -Wextra -Werror
 NAME= push_swap
 SRC= push_mandatory/free_linked.c push_mandatory/main.c push_mandatory/ft_instruction.c push_mandatory/is_sorted.c\
 	 push_mandatory/sort_3.c push_mandatory/ft_add_to_stack.c push_mandatory/ft_check_duplicate.c  push_mandatory/give_arr.c\
-	 push_mandatory/check_error.c push_mandatory/sort_5.c
+	 push_mandatory/check_error.c push_mandatory/sort_5.c push_mandatory/ft_lst_print_arr.c
 
 OBJ=$(SRC:.c=.o)
 all: $(NAME)

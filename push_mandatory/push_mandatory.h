@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:32:51 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/03 22:14:33 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/05 11:14:08 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,16 @@ typedef struct stack_arr{
 	int position;
 	int nmbr;
 	int index;
+	int cost;
 }stack_arr;
 
+int			ft_printf(const char	*s, ...);
 void		free_linked(stack_arr *arr);
 int			ft_atoi(char *s, char **str);
 void		ft_lstadd_front(stack_arr **lst, stack_arr *new);
 void		list_remove_first(stack_arr **arr);
 void		list_add_back(stack_arr **head, int data);
 void		print_arr(stack_arr *arr);
-int			ft_printf(char const	*s, ...);
 stack_arr	*ft_lstlast(stack_arr *lst);
 int			ft_lstsize(stack_arr *lst);
 char		**ft_split(char const *s);
@@ -59,6 +60,7 @@ void		check_error(int ac, char **av);
 stack_arr	*give_arr(int ac, char **av);
 int			is_sorted(stack_arr *a);
 void		sort_5(stack_arr **a, stack_arr **b);
+void		print_arr(stack_arr *arr);
 
 
 #endif
