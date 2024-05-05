@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/05 13:11:18 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/05 15:32:44 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,6 +206,7 @@ void	get_cost(stack_arr *a)
 
 	if (!a)
 		return;
+
 	give_index(a);
 	give_position(a);
 	tmp = a;
@@ -217,6 +218,13 @@ void	get_cost(stack_arr *a)
 			tmp->cost = ft_lstsize(a) - tmp->index;
 		tmp = tmp->next;
 	}
+}
+
+int biggest_cost(int i, int y)
+{
+	if (i>y)
+		return i;
+	return y;
 }
 
 stack_arr *give_best_one_to_push(stack_arr *a, stack_arr *b)
@@ -231,18 +239,21 @@ stack_arr *give_best_one_to_push(stack_arr *a, stack_arr *b)
 	int smallest_cost = b->cost + b->besto->cost;
 	while (b)
 	{
-		if ((b->position && b->besto->position) || (!(b->position) && !(b->besto->position)))
+		if(b->besto != NULL)
 		{
-			if (biggest(b->cost, b->besto->cost) < smallest_cost)
-			{	
-				smallest_cost = biggest(b->cost,  b->besto->cost);
+			if ((b->position && b->besto->position) || (!(b->position) && !(b->besto->position)))
+			{
+				if (biggest_cost(b->cost, b->besto->cost) < smallest_cost)
+				{	
+					smallest_cost = biggest_cost(b->cost,  b->besto->cost);
+					retu = b;
+				}
+			}
+			else if(b->cost + b->besto->cost < smallest_cost)
+			{
+				smallest_cost = b->cost + b->besto->cost;
 				retu = b;
 			}
-		}
-		else if(b->cost + b->besto->cost < smallest_cost)
-		{
-			smallest_cost = b->cost + b->besto->cost;
-			retu = b;
 		}
 		b = b->next;
 	}
@@ -257,11 +268,13 @@ void print_best_move(stack_arr *a)
 		a = a->next;
 	}	
 }
-void print_cost(stack_arr *arr)
+void	print_cost(stack_arr *arr)
 {	
 	while (arr)
 	{
-		ft_printf("position is %i\n", arr->cost);
+		ft_printf("number : %i cost is %i\nbsto   :%i besto cost is %i\n",arr->nmbr, arr->cost, arr->besto->nmbr, arr->besto->cost);
+		printf("========================\n");
+		printf("========================\n");
 		arr = arr->next;
 	}
 }
@@ -276,12 +289,29 @@ void print_bsto(stack_arr *a)
 	}
 }
 
+void print_total_cost(stack_arr *b)
+{
+	while (b)
+	{
+		if(b->besto != NULL)
+		{
+			if ((b->position && b->besto->position) || (!(b->position) && !(b->besto->position)))
+			{
+				printf("%i\n", biggest_cost(b->cost, b->besto->cost));
+			}
+			else
+			{
+				printf("%i\n", b->cost + b->besto->cost);
+			}
+		}
+		b = b->next;
+	}
+}
+
 int	main(int ac, char **av)
 { 
 	stack_arr	*arr;
 	stack_arr	*arrb;
-
-
 
 	check_error(ac, av);
 	arr = give_arr(ac, av);
@@ -290,6 +320,7 @@ int	main(int ac, char **av)
 	list_add_back(&arrb, 13);
 	list_add_back(&arrb, 5);
 	list_add_back(&arrb, 1);
+	list_add_back(&arrb, 12);
 	// system("leaks push_swap");
 	// atexit(leak);
 	if (duplicated_arr(arr))
@@ -305,11 +336,15 @@ int	main(int ac, char **av)
 		exit(1);
 	}
 	give_bsto(&arr, &arrb);
-	// get_cost(&arr, &arrb);
-	print_bsto(arrb);
+	get_cost(arr);
+	get_cost(arrb);
+	printf("%i\n", give_best_one_to_push(arr, arrb)->nmbr);
+	// print_cost(arrb);
+	// print_total_cost(arr);
+	// print_cost()
+	// print_bsto(arrb);
 	// printf("nmbr %i besto %i\n",arr->nmbr, arrb->besto->nmbr);
 	// get_cost(arr);
-	// print_cost(arr);
 	// print_arr(arr);
 	free_linked(arr);
 }
