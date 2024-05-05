@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/05 11:31:36 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/05 13:09:18 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,54 +132,73 @@ void keep_3(stack_arr **a, stack_arr **b)
 	sort_3(a);
 }
 
-int bigger(stack_arr *a)
+stack_arr *bigger(stack_arr *a)
 {
-	int bigger = a->nmbr;
+	stack_arr *bigger = a;
 	while (a)
 	{
-		if (a->nmbr > bigger)
-			bigger = a->nmbr;
+		if (a->nmbr > bigger->nmbr)
+			bigger = a;
 		a = a->next;
 	}
 	return bigger;
 }
 
-// stack_arr *smallest(stack_arr *a)
-// {
-// 	stack_arr *smallest = a->nmbr;
-// 	while (a)
-// 	{
-// 		if (a->nmbr < smallest->nmbr)
-// 			smallest = a;
-// 		a = a->next;
-// 	}
-// 	return smallest;
-// }
+stack_arr *smallest(stack_arr *a)
+{
+	stack_arr *smallest = a;
+	while (a)
+	{
+		if (a->nmbr < smallest->nmbr)
+			smallest = a;
+		a = a->next;
+	}
+	return smallest;
+}
 
-// void	find_best_move(stack_arr **a, stack_arr **b)
-// {
-//     stack_arr *tmp_a;
-//     stack_arr *tmp_b;
-//     stack_arr *smallest_bi;
+void	find_first_best(stack_arr **a, stack_arr **b)
+{
+	stack_arr *tmp_a;
+	stack_arr *tmp_b;
+	stack_arr *smallest_bi;
 
-//     if (!*b)
-// 		return;  // If b is NULL, return immediately
-// 	smallest_bi->nmbr = bigger(*a);
-// 	if (smallest_bi->nmbr < (*b)->nmbr)
-// 	{
-// 		(*b)->besto = smallest(*a);
-// 		return;
-// 	}
-//     tmp_b = *b;
-//     tmp_a = *a;
-//     while (tmp_a)
-//     {
-//         if ((smallest_bi == NULL || tmp_a->nmbr < smallest_bi->nmbr) && tmp_a->nmbr > tmp_b->nmbr)
-// 			smallest_bi = tmp_a;
-//         tmp_a = tmp_a->next;
-// 	}
-//     tmp_b->besto = smallest_bi;
-// }
+    if (!(*b))
+		return;  // If b is NULL, return immediately
+	else if (*a == NULL)
+	{
+		(*b)->besto = NULL;
+		return;
+	}
+	smallest_bi = bigger(*a);
+	if (smallest_bi->nmbr < (*b)->nmbr)
+	{
+		(*b)->besto = smallest(*a);
+		return;
+	}
+    tmp_b = *b;
+    tmp_a = *a;
+    while (tmp_a)
+    {
+        if (tmp_a->nmbr < smallest_bi->nmbr && tmp_a->nmbr > tmp_b->nmbr)
+			smallest_bi = tmp_a;
+        tmp_a = tmp_a->next;
+	}
+    tmp_b->besto = smallest_bi;
+}
+
+void give_bsto(stack_arr **a, stack_arr **b)
+{
+	stack_arr *tmp;
+
+	if (*a == NULL || *b == NULL)
+		return;
+	tmp = *b;
+	while (tmp)
+	{
+		find_first_best(a, &tmp);
+		tmp = tmp->next;
+	}
+}
 
 void	get_cost(stack_arr *a)
 {
@@ -200,42 +219,29 @@ void	get_cost(stack_arr *a)
 	}
 }
 
-// stack_arr give_best_one_to_push(stack_arr *a, stack_arr *b)
-// {
-// }
-// void	find_best_move(stack_arr **a, stack_arr **b)
-// {
-// 	stack_arr *tmp_a;
-// 	stack_arr *tmp_b;
-// 	stack_arr *smallest_bi;
-
-// 	tmp_b = *b;
-// 	// tmp_a = *a;
-// 	smallest_bi = (*a);
-// 	// while (tmp_b)
-// 	// {
-// 		tmp_a = *a;
-// 		while (tmp_a)
-// 		{
-// 			if (tmp_a->nmbr > tmp_b->nmbr && smallest_bi->nmbr >= tmp_a->nmbr)
-// 			{
-// 				smallest_bi = tmp_a;
-// 				tmp_b->besto = smallest_bi;
-// 			}
-// 			tmp_a = tmp_a->next;
-// 		}
-// 		// tmp_b = tmp_b->next;
-// 	// }
-// }
-
-// void print_arr1(stack_arr *arr)
-// {
-// 	while (arr)
-// 	{
-// 		ft_printf("%i\n", arr->nmbr);
-// 		arr = arr->next;
-// 	}
-// }
+stack_arr *give_best_one_to_push(stack_arr *a, stack_arr *b)
+{
+	give_index(a);
+	give_position(a);
+	get_cost(a);
+	give_index(b);
+	give_position(b);
+	get_cost(b);
+	stack_arr *retu = b;
+	int smallest_cost = b->cost + b->besto->cost;
+	while (b)
+	{
+		if ((b->position && b->besto->position) || (!(b->position) && !(b->besto->position)))
+		{
+			if (biggest(b->cost, b->besto->cost) < smallest_cost)
+				smallest_cost = biggest(b->cost, b->besto->cost);
+		}
+		else if(b->cost + b->besto->cost < smallest_cost)
+			retu = b;
+		b = b->next;
+	}
+	return retu;
+}
 
 void print_best_move(stack_arr *a)
 {
@@ -254,17 +260,30 @@ void print_cost(stack_arr *arr)
 	}
 }
 
-int	main(int ac, char **av)
+
+void print_bsto(stack_arr *a)
 {
+	while (a)
+	{
+		printf("nmbr %i besto %i\n",a->nmbr, a->besto->nmbr);
+		a = a->next;
+	}
+}
+
+int	main(int ac, char **av)
+{ 
 	stack_arr	*arr;
 	stack_arr	*arrb;
+
+
 
 	check_error(ac, av);
 	arr = give_arr(ac, av);
 	arrb = NULL;
-	// list_add_back(&arrb, 32);
-	// list_add_back(&arrb, 12);
-	// list_add_back(&arrb, 1);
+	list_add_back(&arrb, 10);
+	list_add_back(&arrb, 13);
+	list_add_back(&arrb, 5);
+	list_add_back(&arrb, 1);
 	// system("leaks push_swap");
 	// atexit(leak);
 	if (duplicated_arr(arr))
@@ -279,11 +298,10 @@ int	main(int ac, char **av)
 		free_linked(arr);
 		exit(1);
 	}
-	list_add_back(&arrb, 10);
-	list_add_back(&arrb, 13);
-	list_add_back(&arrb, 15);
-	list_add_back(&arrb, 1);
-
+	give_bsto(&arr, &arrb);
+	// get_cost(&arr, &arrb);
+	print_bsto(arrb);
+	// printf("nmbr %i besto %i\n",arr->nmbr, arrb->besto->nmbr);
 	// get_cost(arr);
 	// print_cost(arr);
 	// print_arr(arr);
