@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/05 13:11:00 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/05 13:11:18 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,7 +235,7 @@ stack_arr *give_best_one_to_push(stack_arr *a, stack_arr *b)
 		{
 			if (biggest(b->cost, b->besto->cost) < smallest_cost)
 			{	
-				smallest_cost = biggest(b->cost, b->besto->cost);
+				smallest_cost = biggest(b->cost,  b->besto->cost);
 				retu = b;
 			}
 		}
