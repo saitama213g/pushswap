@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/05 15:32:44 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/05 18:21:29 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,6 +229,7 @@ int biggest_cost(int i, int y)
 
 stack_arr *give_best_one_to_push(stack_arr *a, stack_arr *b)
 {
+	give_bsto(&a, &b);
 	give_index(a);
 	give_position(a);
 	get_cost(a);
@@ -308,19 +309,62 @@ void print_total_cost(stack_arr *b)
 	}
 }
 
+void to_top(stack_arr **tmp, stack_arr *top, char a_b)
+{
+	if (!tmp || !(*tmp) || !top)
+		return;
+	// (void )a_b;
+	// (void )tmp;
+	// (void )top;
+	if (top->position)
+	{
+		while (*tmp != top)
+			rra(tmp, a_b);
+	}
+	else if (top->position == 0)
+	{
+		while (*tmp != top)
+			ra(tmp, a_b);
+	}
+}
+
+void	push_to_a(stack_arr **a, stack_arr **b ,stack_arr *top)
+{
+	if (top->position == 0 && top->besto->position == 0)
+	{
+		while (top->besto != *a && top != *b)
+			rrr(a, b);
+		if(top->besto != *a)
+			to_top(a, top->besto, 'a');
+		else if(top != *b)
+			to_top(b, top, 'b');
+	}else if(top->position == 1 && top->besto->position == 1)
+	{
+		while (top->besto != *a && top != *b)
+			rr(a, b);
+		if(top->besto != *a)
+			to_top(a, top->besto, 'a');
+		else if(top != *b)
+			to_top(b, top, 'b');
+	}else
+	{
+		to_top(a, top->besto, 'a');
+		to_top(b, top, 'b');
+	}
+	pa(a, b, 'a');
+}
+
 int	main(int ac, char **av)
 { 
 	stack_arr	*arr;
+	stack_arr	*best;
 	stack_arr	*arrb;
 
 	check_error(ac, av);
 	arr = give_arr(ac, av);
 	arrb = NULL;
-	list_add_back(&arrb, 10);
-	list_add_back(&arrb, 13);
 	list_add_back(&arrb, 5);
 	list_add_back(&arrb, 1);
-	list_add_back(&arrb, 12);
 	// system("leaks push_swap");
 	// atexit(leak);
 	if (duplicated_arr(arr))
@@ -335,10 +379,20 @@ int	main(int ac, char **av)
 		free_linked(arr);
 		exit(1);
 	}
-	give_bsto(&arr, &arrb);
-	get_cost(arr);
-	get_cost(arrb);
-	printf("%i\n", give_best_one_to_push(arr, arrb)->nmbr);
+	give_index(arr);
+	give_position(arr);
+	best = give_best_one_to_push(arr, arrb);
+	push_to_a(&arr, &arrb, best);
+	printf("%i\n", arr->nmbr);
+	printf("%i\n", arr->next->nmbr);
+
+	// printf("nmbr %i best %i", best->nmbr, best->besto->nmbr);
+	// stack_arr *third = arr->next->next;
+	// printf("%i", third->nmbr);
+	// to_top(&arr, third, 'a');
+	// printf()
+	// push_to_a(&arr, &arrb, best);
+	// printf("%i\n", best->besto->nmbr);
 	// print_cost(arrb);
 	// print_total_cost(arr);
 	// print_cost()
