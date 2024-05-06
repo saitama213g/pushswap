@@ -10,7 +10,7 @@ SRC= push_mandatory/free_linked.c push_mandatory/main.c push_mandatory/ft_instru
 OBJ=$(SRC:.c=.o)
 all: $(NAME)
 
-$(NAME):  $(OBJ)
+$(NAME): $(OBJ)
 	make -C libft/
 	$(CC) $(CFLAGS) $(OBJ) ./libft/libft.a -o $(NAME)
 

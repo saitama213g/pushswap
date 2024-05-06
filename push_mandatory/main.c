@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/05 18:21:29 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/06 18:34:30 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,61 +100,6 @@ void	leak()
 // 	sort_3(a);
 // }
 
-int	ft_average(stack_arr *a)
-{
-	int sum;
-	int i;
-	
-	sum = 0;
-	i = 0;
-	while (a)
-	{
-		sum = a->nmbr;
-		a = a->next;
-		i++;
-	}
-	if (i != 0)
-	{
-		return (sum/i);
-	}
-	return -1;
-}
-
-
-
-void keep_3(stack_arr **a, stack_arr **b)
-{
-	while (ft_lstsize(*a) > 3)
-	{
-		if ((*a)->nmbr < ft_average(*a))
-			pa(b, a, 'b');
-	}
-	sort_3(a);
-}
-
-stack_arr *bigger(stack_arr *a)
-{
-	stack_arr *bigger = a;
-	while (a)
-	{
-		if (a->nmbr > bigger->nmbr)
-			bigger = a;
-		a = a->next;
-	}
-	return bigger;
-}
-
-stack_arr *smallest(stack_arr *a)
-{
-	stack_arr *smallest = a;
-	while (a)
-	{
-		if (a->nmbr < smallest->nmbr)
-			smallest = a;
-		a = a->next;
-	}
-	return smallest;
-}
 
 void	find_first_best(stack_arr **a, stack_arr **b)
 {
@@ -354,16 +299,23 @@ void	push_to_a(stack_arr **a, stack_arr **b ,stack_arr *top)
 	pa(a, b, 'a');
 }
 
+void find_smaller_make_it_top(stack_arr **a)
+{
+	stack_arr *smlst = smallest(*a);
+	to_top(a,smlst, 'a');
+}
+
 int	main(int ac, char **av)
 { 
 	stack_arr	*arr;
-	stack_arr	*best;
+	// stack_arr	*best;
 	stack_arr	*arrb;
 
 	check_error(ac, av);
 	arr = give_arr(ac, av);
 	arrb = NULL;
-	list_add_back(&arrb, 5);
+	list_add_back(&arrb, 15);
+	list_add_back(&arrb, 10);
 	list_add_back(&arrb, 1);
 	// system("leaks push_swap");
 	// atexit(leak);
@@ -373,18 +325,28 @@ int	main(int ac, char **av)
 		write(2, "duplicated\n", 11);
 		exit(1);
 	}
-	else if (is_sorted(arr))
-	{
-		write(1, "sorted\n", 7);
-		free_linked(arr);
-		exit(1);
-	}
-	give_index(arr);
-	give_position(arr);
-	best = give_best_one_to_push(arr, arrb);
-	push_to_a(&arr, &arrb, best);
-	printf("%i\n", arr->nmbr);
-	printf("%i\n", arr->next->nmbr);
+	// else if (is_sorted(arr))
+	// {
+	// 	write(1, "sorted\n", 7);
+	// 	free_linked(arr);
+	// 	exit(1);
+	// }
+	// printf("\n");
+	// print_arr(arrb);
+
+	push_to_a(&arr, &arrb, give_best_one_to_push(arr, arrb));
+	push_to_a(&arr, &arrb, give_best_one_to_push(arr, arrb));
+	push_to_a(&arr, &arrb, give_best_one_to_push(arr, arrb));
+	find_smaller_make_it_top(&arr);
+	print_arr(arr);
+	// find_smaller_make_it_top(arr);
+	
+	// give_index(arr);
+	// give_position(arr);
+	// best = give_best_one_to_push(arr, arrb);
+	// push_to_a(&arr, &arrb, best);
+	// printf("%i\n", arr->nmbr);
+	// printf("%i\n", arr->next->nmbr);
 
 	// printf("nmbr %i best %i", best->nmbr, best->besto->nmbr);
 	// stack_arr *third = arr->next->next;
