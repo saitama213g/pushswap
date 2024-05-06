@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keep_3.c                                           :+:      :+:    :+:   */
+/*   best_move.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 18:33:48 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/06 22:54:35 by aet-tale         ###   ########.fr       */
+/*   Created: 2024/05/06 22:18:09 by aet-tale          #+#    #+#             */
+/*   Updated: 2024/05/06 22:45:25 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_mandatory.h"
+#include	"push_mandatory.h"
 
-void keep_3(stack_arr **a, stack_arr **b)
+void	find_smaller_make_it_top(stack_arr **a)
 {
-	(void)b;
-	// stack_arr *tmp;
+	stack_arr *smlst;
 
-	// tmp = *a;
-	// while (ft_lstsize(tmp) > 3)
-	// {
-	// 	if (tmp->nmbr <= ft_average(tmp))
-	// 	{
-	// 		to_top(a,tmp, 'a');
-	// 		pa(b, a, 'b');
-	// 	}
-	// 	tmp = tmp->next;
-	// }
-	sort_3(a);
+	smlst = smallest(*a);
+	to_top(a,smlst, 'a');
+}
+
+void	best_move(stack_arr **a, stack_arr **b)
+{
+	keep_3(a, b);
+	while (*b)
+	{
+		update_stack(*a);
+		update_stack(*b);
+		give_bsto(a, b);
+		push_to_a(a, b, give_best_one_to_push(*a, *b));
+	}
+	update_stack(*a);
+	find_smaller_make_it_top(a);
 	printf("\n");
 }

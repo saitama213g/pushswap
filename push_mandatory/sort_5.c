@@ -6,35 +6,12 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:56:43 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/03 19:28:48 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/06 22:32:51 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_mandatory.h"
 
-void give_position(stack_arr *a)
-{
-	int size = ft_lstsize(a);
-	while (a)
-	{
-		if (a->index <= size/2)
-			a->position = 0;
-		else
-			a->position = 1;
-		a = a->next;
-	}
-}
-
-void give_index(stack_arr *a)
-{
-	int i = 0;
-	while (a)
-	{
-		a->index = i;
-		a = a->next;
-		i++;
-	}
-}
 
 void	push_smaller(stack_arr **a, stack_arr **b)
 {
@@ -73,6 +50,7 @@ void sort_5(stack_arr **a, stack_arr **b)
 {
 	if (ft_lstsize(*a) != 5)
 		return;
+
 	give_position(*a);
 	push_smaller(a, b);
 	pa(b, a, 'b');
