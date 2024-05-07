@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/07 11:29:26 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/07 12:27:56 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	main(int ac, char **av)
 { 
 	stack_arr	*arr;
 	stack_arr	*arrb;
-
 
 	arrb = NULL;
 	check_error(ac, av);
@@ -38,11 +37,12 @@ int	main(int ac, char **av)
 		free_linked(arr);
 		exit(1);
 	}
-	keep_3(&arr, &arrb);
-	print_arr(arr);
+	push_swap(&arr, &arrb);
 	printf("\n");
-	print_arr(arrb);
-	// push_swap(arr);
+	print_arr(arr);
+	// print_arr(arr);
+	// printf("\n");
+	// print_arr(arrb);
 	// printf("\n");
 	// print_arr(arrb);
 	// best_move(&arrb, &arr);

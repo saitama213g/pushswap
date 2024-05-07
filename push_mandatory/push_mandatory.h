@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:32:51 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/06 22:31:37 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/07 12:28:40 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void		push_to_a(stack_arr **a, stack_arr **b ,stack_arr *top);
 void		find_smaller_make_it_top(stack_arr **a);
 void		update_stack(stack_arr *a);
 void		best_move(stack_arr **a, stack_arr **b);
-void		push_swap(stack_arr **a);
+void		push_swap(stack_arr **a, stack_arr **b);
 
 
 #endif
