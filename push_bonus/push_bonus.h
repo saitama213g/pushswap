@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   push_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 18:24:26 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/07 13:15:35 by aet-tale         ###   ########.fr       */
+/*   Created: 2024/05/07 12:42:46 by aet-tale          #+#    #+#             */
+/*   Updated: 2024/05/07 13:02:28 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libft.h"
 
-int	ft_strlen(char *s)
-{
-	int	i;
+#ifndef PUSH_SWAP_H
+#define PUSH_SWAP_H
+#include "unistd.h"
+#include "../libft/ft_libft.h"
 
-	if (!s)
-		return (0);
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+stack_arr	*give_arr(int ac, char **av);
+int			duplicated_arr(stack_arr *a);
+void		free_linked(stack_arr *arr);
+int			is_sorted(stack_arr *a);
+void		check_error(int ac, char **av);
+void		apply_instructions(stack_arr **a);
+
+#endif

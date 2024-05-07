@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 22:18:09 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/06 22:45:25 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:24:58 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,4 @@ void	best_move(stack_arr **a, stack_arr **b)
 	}
 	update_stack(*a);
 	find_smaller_make_it_top(a);
-	printf("\n");
 }

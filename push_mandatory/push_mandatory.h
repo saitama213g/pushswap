@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:32:51 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/07 12:28:40 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:03:43 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-// #include "../libft/ft_libft.h"
+#include "../libft/ft_libft.h"
 
-typedef struct stack_arr{
-	struct stack_arr *next;
-	struct stack_arr *besto;
-	int position;
-	int nmbr;
-	int index;
-	int cost;
-}stack_arr;
 int			ft_average(stack_arr *a);
 int			ft_printf(const char	*s, ...);
-void		free_linked(stack_arr *arr);
 int			ft_atoi(char *s, char **str);
 void		ft_lstadd_front(stack_arr **lst, stack_arr *new);
 void		list_remove_first(stack_arr **arr);
@@ -36,7 +27,6 @@ void		print_arr(stack_arr *arr);
 stack_arr	*ft_lstlast(stack_arr *lst);
 int			ft_lstsize(stack_arr *lst);
 char		**ft_split(char const *s);
-size_t		ft_strlen(const char *s);
 int			last_element(stack_arr *arr);
 void		sa(stack_arr **arr, char a_b);
 void		ss(stack_arr *arra, stack_arr *arrb);
@@ -76,6 +66,6 @@ void		find_smaller_make_it_top(stack_arr **a);
 void		update_stack(stack_arr *a);
 void		best_move(stack_arr **a, stack_arr **b);
 void		push_swap(stack_arr **a, stack_arr **b);
-
+void	free_linked(stack_arr *arr);
 
 #endif

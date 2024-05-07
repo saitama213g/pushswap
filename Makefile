@@ -13,7 +13,7 @@ OBJ=$(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	make -C libft/
+	@make -C libft/
 	$(CC) $(CFLAGS) $(OBJ) ./libft/libft.a -o $(NAME)
 
 $(OBJ) :$(HEAD)

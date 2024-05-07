@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:56:43 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/06 22:32:51 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:49:36 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void sort_5(stack_arr **a, stack_arr **b)
 	if (ft_lstsize(*a) != 5)
 		return;
 
+	give_index(*a);
 	give_position(*a);
 	push_smaller(a, b);
 	pa(b, a, 'b');

@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/07 12:27:56 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/07 16:33:33 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,22 @@ int	main(int ac, char **av)
 	stack_arr	*arr;
 	stack_arr	*arrb;
 
-	arrb = NULL;
+	// atexit(leak);
 	check_error(ac, av);
+	arrb = NULL;
 	arr = give_arr(ac, av);
 	if (duplicated_arr(arr))
 	{
 		free_linked(arr);
-		write(2, "duplicated\n", 11);
+		write(2, "ERROR\n", 6);
 		exit(1);
 	}
 	else if (is_sorted(arr))
 	{
-		write(1, "sorted\n", 7);
 		free_linked(arr);
-		exit(1);
+		return (0);
 	}
 	push_swap(&arr, &arrb);
-	printf("\n");
-	print_arr(arr);
 	// print_arr(arr);
-	// printf("\n");
-	// print_arr(arrb);
-	// printf("\n");
-	// print_arr(arrb);
-	// best_move(&arrb, &arr);
-	// find_smaller_make_it_top(arr);
 	free_linked(arr);
 }

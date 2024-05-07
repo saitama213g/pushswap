@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   apply_instructions.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 18:24:26 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/07 13:15:35 by aet-tale         ###   ########.fr       */
+/*   Created: 2024/05/07 13:01:28 by aet-tale          #+#    #+#             */
+/*   Updated: 2024/05/07 13:08:09 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libft.h"
+#include "push_bonus.h"
 
-int	ft_strlen(char *s)
+void apply_instructions(stack_arr **a)
 {
-	int	i;
-
-	if (!s)
-		return (0);
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	char **str;
+	
 }
