@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/06 22:51:59 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/07 11:29:26 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	main(int ac, char **av)
 	}
 	keep_3(&arr, &arrb);
 	print_arr(arr);
+	printf("\n");
+	print_arr(arrb);
 	// push_swap(arr);
 	// printf("\n");
 	// print_arr(arrb);
