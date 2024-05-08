@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/07 19:06:13 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:32:01 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 	stack_arr	*arrb;
 
 	// atexit(leak);
-	check_error(ac, av);
+	check_error(ac, av); 
 	arrb = NULL;
 	arr = NULL;
 	arr = give_arr(ac, av);

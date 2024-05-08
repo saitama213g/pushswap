@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:20:48 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/07 16:50:03 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:46:11 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static void	check_o(int number, int tmp, int sign, char **str)
 	{
 		free_arr(str);
 		write(2, "ERROR\n", 6);
-		exit(0);
+		exit(1);
 	}
 	else if (number > tmp && sign == -1)
 	{
 		free_arr(str);
 		write(2, "ERROR\n", 6);
-		exit(0);
+		exit(1);
 	}
 }
 

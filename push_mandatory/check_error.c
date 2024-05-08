@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 17:03:17 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/08 11:06:42 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:49:13 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ void check_error(int ac, char **av)
 			{
 				free_arr(str);
 				write(2, "ERROR\n", 6);
-				exit(0);
+				exit(1);
 			}
 			check_overflow_sign(str);
 			free_arr(str);
 			i++;
 		}
 	}else {
-		exit(1);
+		exit(0);
 	}
 }

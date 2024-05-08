@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:01:11 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/01 22:29:44 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:35:22 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void sa(stack_arr **arr, char a_b)
 		ft_printf("sb\n");
 }
 
-void	ss(stack_arr *arra, stack_arr *arrb)
+void	ss(stack_arr **arra, stack_arr **arrb)
 {
-	sa(&arra, 0);
-	sa(&arrb, 0);
+	sa(arra, 0);
+	sa(arrb, 0);
 	ft_printf("ss\n");
 }
 
@@ -53,6 +53,8 @@ void	pa(stack_arr **arra, stack_arr **arrb, char a_b)
 void	ra(stack_arr **arr, char a_b)
 {
 	stack_arr *first;
+	if (!(arr)|| !(*arr) || !(*arr)->next)
+		return;
 
 	first = (*arr);
 	(*arr) = (*arr)->next;
@@ -67,8 +69,6 @@ void	ra(stack_arr **arr, char a_b)
 
 void	rr(stack_arr **arra, stack_arr **arrb)
 {
-	if (!arra || !(*arrb))
-		return;
 	ra(arra, 0);
 	ra(arrb, 0);
 	ft_printf("rr\n");
@@ -86,8 +86,6 @@ void	rra(stack_arr **arr, char a_b)
 	tmp = (*arr);
 	while (tmp->next->next)
 		tmp = tmp->next;
-	// last_element = tmp->next;
-	// ft_printf("this : %d\n", tmp->nmbr);
 	tmp->next = NULL;
 	ft_lstadd_front(arr, last_element);
 	if (a_b == 'a')

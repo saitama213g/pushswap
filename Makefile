@@ -16,7 +16,6 @@ SRC_BONUS = push_mandatory/give_arr.c push_mandatory/check_error.c push_mandator
 			push_mandatory/ft_instruction.c push_bonus/apply_instructions.c
 
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
-
 OBJ=$(SRC:.c=.o)
 
 all: $(NAME)
@@ -24,10 +23,6 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@make -C libft/
 	$(CC) $(CFLAGS) $(OBJ) ./libft/libft.a -o $(NAME)
-
-bonus:$(OBJ_BONUS)
-	make -C libft/
-	$(CC) $(CFLAGS) $(OBJ_BONUS) ./libft/libft.a -o $(checker)
 
 $(OBJ) :$(HEAD)
 $(OBJ_BONUS) :$(HEAD_BONUS)
@@ -42,5 +37,11 @@ fclean:clean
 
 re:fclean all
 .PHONY:all clean fclean re
+
+bonus: $(checker)
+
+$(checker):$(OBJ_BONUS)
+	@make -C libft/
+	$(CC) $(CFLAGS) $(OBJ_BONUS) ./libft/libft.a -o $(checker)
 
 # bonus : $(NAME_B)
