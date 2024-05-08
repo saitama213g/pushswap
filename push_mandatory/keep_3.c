@@ -6,28 +6,21 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:33:48 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/07 11:28:51 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 12:22:02 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_mandatory.h"
 
-void keep_3(stack_arr **a, stack_arr **b)
+void	keep_5(stack_arr **a, stack_arr **b)
 {
-	stack_arr *tmp;
-	// (void)b;
-
-	tmp = *a;
-	while (ft_lstsize(*a) > 3 && tmp)
+	while (ft_lstsize(*a) > 5)
 	{
-		if (tmp->nmbr >= ft_average(*a))
-		{
-			to_top(a, tmp, 'a');
-			tmp = (*a)->next;
+		if ((*a)->nmbr <= ft_average(*a))
 			pa(b, a, 'b');
-		}else 
-			tmp = tmp->next;
+		else
+			ra(a, 'a');
 	}
-	sort_3(a);
+	sort_5(a, b);
 	// printf("\n");
 }

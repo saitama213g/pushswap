@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:37:36 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/06 18:40:23 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/07 21:12:39 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ void	find_first_best(stack_arr **a, stack_arr **b)
 		(*b)->besto = smallest(*a);
 		return;
 	}
-    tmp_b = *b;
-    tmp_a = *a;
-    while (tmp_a)
-    {
-        if (tmp_a->nmbr < smallest_bi->nmbr && tmp_a->nmbr > tmp_b->nmbr)
+	tmp_b = *b;
+	tmp_a = *a;
+	while (tmp_a)
+	{
+		if (tmp_a->nmbr < smallest_bi->nmbr && tmp_a->nmbr > tmp_b->nmbr)
 			smallest_bi = tmp_a;
-        tmp_a = tmp_a->next;
+		tmp_a = tmp_a->next;
 	}
-    tmp_b->besto = smallest_bi;
+	tmp_b->besto = smallest_bi;
 }
 
-void give_bsto(stack_arr **a, stack_arr **b)
+void 	give_bsto(stack_arr **a, stack_arr **b)
 {
 	stack_arr *tmp;
 

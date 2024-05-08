@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:35:30 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/06 18:46:38 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/07 20:42:34 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 stack_arr	*bigger(stack_arr *a)
 {
-	stack_arr *bigger = a;
+	stack_arr *bigger;
+
+	bigger = a;
 	while (a)
 	{
 		if (a->nmbr > bigger->nmbr)
@@ -27,6 +29,7 @@ stack_arr	*bigger(stack_arr *a)
 stack_arr	*smallest(stack_arr *a)
 {
 	stack_arr *smallest = a;
+
 	while (a)
 	{
 		if (a->nmbr < smallest->nmbr)

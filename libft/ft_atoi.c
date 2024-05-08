@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:20:48 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/03 19:26:41 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/07 16:50:03 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	ft_atoi(char *s, char **str)
 
 	number = 0;
 	sign = 1;
-	(void)str;
 	while (is_space(*s))
 		s++;
 	if (*s == '-' || *s == '+')
@@ -61,7 +60,7 @@ int	ft_atoi(char *s, char **str)
 
 // int main(void)
 // {
-//     int x = ft_atoi("2147483647");
+//     int x = ft_atoi("2147483647", 0);
 //     ft_printf("%i\n", x);
 //     // if(x < 214748364)
 //     // {

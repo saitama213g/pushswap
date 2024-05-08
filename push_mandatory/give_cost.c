@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:39:01 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/06 18:39:34 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/07 21:00:07 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void give_position(stack_arr *a)
 	int size = ft_lstsize(a);
 	while (a)
 	{
-		if (a->index <= size/2)
+		if (a->index < size/2)
 			a->position = 0;
 		else
 			a->position = 1;

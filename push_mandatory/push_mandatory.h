@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:32:51 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/07 15:03:43 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 12:21:59 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <unistd.h>
 #include "../libft/ft_libft.h"
 
-int			ft_average(stack_arr *a);
+double		ft_average(stack_arr *a);
 int			ft_printf(const char	*s, ...);
 int			ft_atoi(char *s, char **str);
 void		ft_lstadd_front(stack_arr **lst, stack_arr *new);
@@ -51,21 +51,20 @@ stack_arr	*give_arr(int ac, char **av);
 int			is_sorted(stack_arr *a);
 void		sort_5(stack_arr **a, stack_arr **b);
 void		print_arr(stack_arr *arr);
-int			ft_average(stack_arr *a);
-void		keep_3(stack_arr **a, stack_arr **b);
+void		keep_5(stack_arr **a, stack_arr **b);
 stack_arr	*bigger(stack_arr *a);
 stack_arr	*smallest(stack_arr *a);
 void		find_first_best(stack_arr **a, stack_arr **b);
 void		give_bsto(stack_arr **a, stack_arr **b);
 void		give_cost(stack_arr *a);
 int			biggest_cost(int i, int y);
-stack_arr	*give_best_one_to_push(stack_arr *a, stack_arr *b);
+stack_arr	*give_best_one_to_push(stack_arr *b);
 void		to_top(stack_arr **tmp, stack_arr *top, char a_b);
 void		push_to_a(stack_arr **a, stack_arr **b ,stack_arr *top);
 void		find_smaller_make_it_top(stack_arr **a);
 void		update_stack(stack_arr *a);
 void		best_move(stack_arr **a, stack_arr **b);
 void		push_swap(stack_arr **a, stack_arr **b);
-void	free_linked(stack_arr *arr);
+void		free_linked(stack_arr *arr);
 
 #endif

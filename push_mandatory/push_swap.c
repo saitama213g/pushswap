@@ -6,15 +6,15 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 19:28:21 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/07 12:29:14 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/07 19:37:38 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_mandatory.h"
 
-void push_swap(stack_arr **a, stack_arr **b)
+void	push_swap(stack_arr **a, stack_arr **b)
 {
-	int size;
+	int	size;
 
 	size = ft_lstsize(*a);
 	if (size == 2)
@@ -33,6 +33,6 @@ void push_swap(stack_arr **a, stack_arr **b)
 	}
 	else if (size == 5)
 		sort_5(a, b);
-	else if(size > 5)
+	else if (size > 5)
 		best_move(a, b);
 }

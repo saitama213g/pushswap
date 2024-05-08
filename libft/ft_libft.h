@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 13:12:41 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/07 13:32:11 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 11:21:28 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int			is_digit(char s);
 void		print_err(char **str);
 stack_arr	*give_arr(int ac, char **av);
 char		*get_next_line(int fd);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
+
 
 
 #endif
