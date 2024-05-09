@@ -6,23 +6,17 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/08 16:32:01 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 22:41:17 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_mandatory.h"
 
-void	leak()
-{
-	system("leaks push_swap");
-}
-
 int	main(int ac, char **av)
 {
-	stack_arr	*arr;
-	stack_arr	*arrb;
+	t_stack	*arr;
+	t_stack	*arrb;
 
-	// atexit(leak);
 	check_error(ac, av); 
 	arrb = NULL;
 	arr = NULL;
@@ -39,6 +33,5 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	push_swap(&arr, &arrb);
-	// print_arr(arr);
 	free_linked(arr);
 }

@@ -6,48 +6,46 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:37:36 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/07 21:12:39 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 22:42:34 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_mandatory.h"
 
-void	find_first_best(stack_arr **a, stack_arr **b)
+void	find_first_best(t_stack **a, t_stack **b)
 {
-	stack_arr *tmp_a;
-	stack_arr *tmp_b;
-	stack_arr *smallest_bi;
+	t_stack	*tmp_a;
+	t_stack	*smallest_bi;
 
-    if (!(*b))
-		return;  // If b is NULL, return immediately
+	if (!(*b))
+		return ;
 	else if (*a == NULL)
 	{
 		(*b)->besto = NULL;
-		return;
+		return ;
 	}
 	smallest_bi = bigger(*a);
 	if (smallest_bi->nmbr < (*b)->nmbr)
 	{
 		(*b)->besto = smallest(*a);
-		return;
+		return ;
 	}
-	tmp_b = *b;
 	tmp_a = *a;
 	while (tmp_a)
 	{
-		if (tmp_a->nmbr < smallest_bi->nmbr && tmp_a->nmbr > tmp_b->nmbr)
+		if (tmp_a->nmbr < smallest_bi->nmbr && tmp_a->nmbr > (*b)->nmbr)
 			smallest_bi = tmp_a;
 		tmp_a = tmp_a->next;
 	}
-	tmp_b->besto = smallest_bi;
+	(*b)->besto = smallest_bi;
 }
 
-void 	give_bsto(stack_arr **a, stack_arr **b)
+void	give_bsto(t_stack **a, t_stack **b)
 {
-	stack_arr *tmp;
+	t_stack	*tmp;
 
 	if (*a == NULL || *b == NULL)
-		return;
+		return ;
 	tmp = *b;
 	while (tmp)
 	{

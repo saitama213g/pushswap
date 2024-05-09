@@ -6,15 +6,15 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:35:30 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/07 20:42:34 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 22:42:41 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_mandatory.h"
 
-stack_arr	*bigger(stack_arr *a)
+t_stack	*bigger(t_stack *a)
 {
-	stack_arr *bigger;
+	t_stack	*bigger;
 
 	bigger = a;
 	while (a)
@@ -23,18 +23,19 @@ stack_arr	*bigger(stack_arr *a)
 			bigger = a;
 		a = a->next;
 	}
-	return bigger;
+	return (bigger);
 }
 
-stack_arr	*smallest(stack_arr *a)
+t_stack	*smallest(t_stack *a)
 {
-	stack_arr *smallest = a;
+	t_stack	*smallest;
 
+	smallest = a;
 	while (a)
 	{
 		if (a->nmbr < smallest->nmbr)
 			smallest = a;
 		a = a->next;
 	}
-	return smallest;
+	return (smallest);
 }

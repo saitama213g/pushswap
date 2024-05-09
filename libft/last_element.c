@@ -6,13 +6,13 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 13:50:57 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/01 13:51:18 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/09 18:36:51 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libft.h"
 
-int last_element(stack_arr *arr)
+int	last_element(t_stack	*arr)
 {
 	while (arr->next)
 	{

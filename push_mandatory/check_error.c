@@ -6,16 +6,17 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 17:03:17 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/08 15:49:13 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 18:49:11 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_mandatory.h"
 
-
-void check_overflow_sign(char **str)
+void	check_overflow_sign(char **str)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (str[i])
 	{
 		ft_atoi(str[i], str);
@@ -23,14 +24,14 @@ void check_overflow_sign(char **str)
 	}
 }
 
-void check_error(int ac, char **av)
+void	check_error(int ac, char **av)
 {
-	int i;
-	char **str;
+	int		i;
+	char	**str;
 
 	i = 1;
 	str = NULL;
-	if (ac > 2)
+	if (ac >= 2)
 	{
 		while (i < ac)
 		{
@@ -45,7 +46,7 @@ void check_error(int ac, char **av)
 			free_arr(str);
 			i++;
 		}
-	}else {
-		exit(0);
 	}
+	else
+		exit(0);
 }

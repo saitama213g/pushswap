@@ -6,22 +6,23 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:56:43 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/07 20:44:41 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 22:41:05 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_mandatory.h"
 
-void	push_smaller(stack_arr **a, stack_arr **b)
+void	push_smaller(t_stack **a, t_stack **b)
 {
-	stack_arr *smaller;
+	t_stack	*smaller;
 
 	smaller = smallest(*a);
 	if (smaller->position == 0)
 	{
 		while (smaller->nmbr != (*a)->nmbr)
 			ra(a, 'a');
-	}else if (smaller->position == 1)
+	}
+	else if (smaller->position == 1)
 	{
 		while (smaller->nmbr != (*a)->nmbr)
 			rra(a, 'a');
@@ -29,17 +30,10 @@ void	push_smaller(stack_arr **a, stack_arr **b)
 	pa(b, a, 'b');
 }
 
-// void update_ip(stack_arr *a)
-// {
-// 	give_index(a);
-// 	give_position(a);
-// }
-
-void	sort_5(stack_arr **a, stack_arr **b)
+void	sort_5(t_stack **a, t_stack **b)
 {
 	if (ft_lstsize(*a) != 5)
-		return;
-
+		return ;
 	give_index(*a);
 	give_position(*a);
 	push_smaller(a, b);

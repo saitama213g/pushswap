@@ -6,24 +6,18 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 12:37:32 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/08 16:05:01 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 22:43:05 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"push_bonus.h"
+#include "push_bonus.h"
 
-void leak()
+int	main(int ac, char **av)
 {
-	system("leaks checker");
-}
-
-int main(int ac, char **av)
-{
-	stack_arr *a;
-	stack_arr *b;
+	t_stack	*a;
+	t_stack	*b;
 
 	b = NULL;
-	atexit(leak);
 	check_error(ac, av);
 	a = give_arr(ac, av);
 	if (duplicated_arr(a))
@@ -36,8 +30,7 @@ int main(int ac, char **av)
 	if (is_sorted(a) && b == NULL)
 	{
 		write(1, "OK\n", 3);
-		free_linked(a);
-		return 0;
+		return (free_linked(a), 0);
 	}
 	else
 	{

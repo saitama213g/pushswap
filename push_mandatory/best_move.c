@@ -6,21 +6,21 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 22:18:09 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/08 12:33:11 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 22:42:45 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"push_mandatory.h"
+#include "push_mandatory.h"
 
-void	find_smaller_make_it_top(stack_arr **a)
+void	find_smaller_make_it_top(t_stack **a)
 {
-	stack_arr *smlst;
+	t_stack	*smlst;
 
 	smlst = smallest(*a);
 	to_top(a, smlst, 'a');
 }
 
-void	best_move(stack_arr **a, stack_arr **b)
+void	best_move(t_stack **a, t_stack **b)
 {
 	keep_5(a, b);
 	while (*b)
@@ -32,6 +32,5 @@ void	best_move(stack_arr **a, stack_arr **b)
 	}
 	give_index(*a);
 	give_position(*a);
-	// update_stack(*a);
 	find_smaller_make_it_top(a);
 }

@@ -6,13 +6,13 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:33:48 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/08 16:27:15 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 22:41:23 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_mandatory.h"
 
-void	keep_5(stack_arr **a, stack_arr **b)
+void	keep_5(t_stack **a, t_stack **b)
 {
 	while (ft_lstsize(*a) > 5)
 	{

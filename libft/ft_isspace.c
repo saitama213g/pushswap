@@ -6,13 +6,13 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 16:45:06 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/02 16:52:25 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/09 18:30:58 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int is_space(char s)
+int	is_space(char s)
 {
-	if ((s>=9 && s<=13) || s == ' ')
+	if ((s >= 9 && s <= 13) || s == ' ')
 		return (1);
 	return (0);
 }

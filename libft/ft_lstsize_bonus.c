@@ -6,13 +6,13 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 22:25:22 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/04/01 13:37:38 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/08 19:50:27 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libft.h"
 
-int	ft_lstsize(stack_arr *lst)
+int	ft_lstsize(t_stack *lst)
 {
 	int	i;
 

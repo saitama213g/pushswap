@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_linked.c                                      :+:      :+:    :+:   */
+/*   new_instructions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 13:46:26 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/08 22:42:29 by aet-tale         ###   ########.fr       */
+/*   Created: 2024/05/08 18:27:05 by aet-tale          #+#    #+#             */
+/*   Updated: 2024/05/08 22:43:21 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_mandatory.h"
+#include "push_bonus.h"
 
-void	free_linked(t_stack *arr)
+void	ss1(t_stack **arra, t_stack **arrb)
 {
-	t_stack	*tmp;
+	sa(arra, 0);
+	sa(arrb, 0);
+}
 
-	while (arr)
-	{
-		tmp = arr->next;
-		free(arr);
-		arr = tmp;
-	}
+void	rrr1(t_stack **arra, t_stack **arrb)
+{
+	if (!arra || !arrb)
+		return ;
+	rra(arra, 0);
+	rra(arrb, 0);
+}
+
+void	rr1(t_stack **arra, t_stack **arrb)
+{
+	if (!arra || !(*arrb))
+		return ;
+	ra(arra, 0);
+	ra(arrb, 0);
 }

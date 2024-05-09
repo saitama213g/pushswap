@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 15:05:42 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/02 16:52:09 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/09 18:35:56 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ static int	counting_words(char *s)
 static char	**ft_strs(char **str, char *s, int j)
 {
 	int	i;
+
 	i = 0;
 	while (s[i])
 	{
@@ -91,25 +92,12 @@ static char	**ft_strs(char **str, char *s, int j)
 
 char	**ft_split(char const *s)
 {
-	// int		i;
 	char	**str;
 
 	if (!s)
 		return (NULL);
-	// i = 0;
 	str = malloc(sizeof(char *) * (counting_words((char *)s) + 1));
 	if (!str)
 		return (NULL);
 	return (ft_strs(str, (char *)s, 0));
 }
-
-// int main(void)
-// {
-// 	int i =0;
-// 	char **str = ft_split("hello my name is anwar aap \t \napapa");
-// 	while(i<7)
-// 	{
-// 		printf("%s\n",str[i]);
-// 		i++;
-// 	}
-// }
