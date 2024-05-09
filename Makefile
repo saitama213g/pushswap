@@ -12,6 +12,7 @@ SRC = push_mandatory/free_linked.c push_mandatory/main.c push_mandatory/ft_instr
 	 push_mandatory/keep_3.c push_mandatory/push_to_a.c push_mandatory/best_move.c push_mandatory/push_swap.c
 
 SRC_BONUS = push_mandatory/give_arr.c push_mandatory/check_error.c push_mandatory/ft_check_duplicate.c push_mandatory/is_sorted.c \
+			push_bonus/apply_instructions.c \
 			push_bonus/main.c push_mandatory/free_linked.c push_mandatory/ft_add_to_stack.c push_mandatory/ft_lst_print_arr.c \
 			push_mandatory/ft_instruction1.c push_mandatory/ft_instruction2.c push_bonus/new_instructions.c
 

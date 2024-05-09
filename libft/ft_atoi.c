@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:20:48 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/09 18:40:00 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/09 18:52:07 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,20 @@ static void	check_o(int number, int tmp, int sign, char **str)
 	}
 }
 
+int	to_norm(int number, int sign, char *s, char **str)
+{
+	int	tmp;
+
+	tmp = number;
+	number = 10 * number + (sign) * (*s - 48);
+	check_o(number, tmp, sign, str);
+	return (number);
+}
+
 int	ft_atoi(char *s, char **str)
 {
 	int	number;
 	int	sign;
-	int	tmp;
 
 	number = 0;
 	sign = 1;
@@ -50,9 +59,7 @@ int	ft_atoi(char *s, char **str)
 	{
 		if (!is_digit(*s))
 			print_err(str);
-		tmp = number;
-		number = 10 * number + (sign) * (*s - 48);
-		check_o(number, tmp, sign, str);
+		number = to_norm(number, sign, s, str);
 		s++;
 	}
 	return (number);
