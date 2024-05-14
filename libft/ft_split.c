@@ -48,7 +48,7 @@ static int	counting_words(char *s)
 	int	j;
 
 	i = 0;
-	j = 0; 
+	j = 0;
 	while (s[i])
 	{
 		while (is_space(s[i]) && s[i])
