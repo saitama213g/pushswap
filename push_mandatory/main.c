@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:11:54 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/08 22:41:17 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/14 18:44:56 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int ac, char **av)
 	t_stack	*arr;
 	t_stack	*arrb;
 
-	check_error(ac, av); 
+	check_error(ac, av);
 	arrb = NULL;
 	arr = NULL;
 	arr = give_arr(ac, av);
