@@ -17,7 +17,7 @@ int	main(int ac, char **av)
 	t_stack	*arr;
 	t_stack	*arrb;
 
-	check_error(ac, av); 
+	check_error(ac, av);
 	arrb = NULL;
 	arr = NULL;
 	arr = give_arr(ac, av);

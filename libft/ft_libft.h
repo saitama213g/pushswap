@@ -19,14 +19,15 @@
 # include <unistd.h>
 # include <limits.h>
 
-typedef struct t_stack{
+typedef struct t_stack
+{
 	struct t_stack		*next;
 	struct t_stack		*besto;
 	int					position;
 	int					nmbr;
 	int					index;
 	int					cost;
-}t_stack;
+}	t_stack;
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42

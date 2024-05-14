@@ -20,7 +20,7 @@ void	sa(t_stack **arr, char a_b)
 		return ;
 	tmp = (*arr)->next->next;
 	ft_lstadd_front(arr, (*arr)->next);
-	(*arr)->next->next = tmp; 
+	(*arr)->next->next = tmp;
 	if (a_b == 'a')
 		ft_printf("sa\n");
 	else if (a_b == 'b')
