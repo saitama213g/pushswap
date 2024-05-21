@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 19:28:21 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/08 22:40:38 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/21 18:53:06 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	push_swap(t_stack **a, t_stack **b)
 	else if (size == 4)
 	{
 		push_smaller(a, b);
-		pa(b, a, 'b');
 		sort_3(a);
 		pa(a, b, 'a');
 	}

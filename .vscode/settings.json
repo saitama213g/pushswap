@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "push_mandatory.h": "c",
-        "push_bonus.h": "c",
-        "ft_libft.h": "c"
-    }
-}

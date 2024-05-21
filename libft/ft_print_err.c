@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 16:46:04 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/09 18:38:11 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/14 20:47:09 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void	print_err(char **str)
 {
 	free_arr(str);
 	write(2, "ERROR\n", 6);
-	exit(0);
+	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:32:51 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/09 18:28:13 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/15 11:49:10 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,6 @@
 # include "../libft/ft_libft.h"
 
 double		ft_average(t_stack *a);
-int			ft_printf(const char	*s, ...);
-int			ft_atoi(char *s, char **str);
-void		ft_lstadd_front(t_stack **lst, t_stack *new);
-void		list_remove_first(t_stack **arr);
-void		list_add_back(t_stack **head, int data);
-void		print_arr(t_stack *arr);
-t_stack		*ft_lstlast(t_stack *lst);
-int			ft_lstsize(t_stack *lst);
-char		**ft_split(char const *s);
-int			last_element(t_stack *arr);
 void		sa(t_stack **arr, char a_b);
 void		ss(t_stack **arra, t_stack **arrb);
 void		pa(t_stack **arra, t_stack **arrb, char a_b);
@@ -43,14 +33,11 @@ void		give_index(t_stack *a);
 void		push_smaller(t_stack **a, t_stack **b);
 void		give_position(t_stack *a);
 void		ft_lstadd_front(t_stack **lst, t_stack *new);
-void		ft_lstadd_back(t_stack **lst, t_stack *new);
-void		free_arr(char **str);
 int			duplicated_arr(t_stack *a);
 void		check_error(int ac, char **av);
 t_stack		*give_arr(int ac, char **av);
 int			is_sorted(t_stack *a);
 void		sort_5(t_stack **a, t_stack **b);
-void		print_arr(t_stack *arr);
 void		keep_5(t_stack **a, t_stack **b);
 t_stack		*bigger(t_stack *a);
 t_stack		*smallest(t_stack *a);

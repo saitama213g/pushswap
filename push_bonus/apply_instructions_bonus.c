@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   apply_instructions.c                               :+:      :+:    :+:   */
+/*   apply_instructions_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aet-tale <aet-tale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 13:01:28 by aet-tale          #+#    #+#             */
-/*   Updated: 2024/05/08 22:48:36 by aet-tale         ###   ########.fr       */
+/*   Updated: 2024/05/14 20:58:35 by aet-tale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,7 @@ void	apply_instructions(t_stack **a, t_stack **b)
 	str = get_next_line(0);
 	while (str)
 	{
-		if (check_ss(str, a, b))
-			i++;
-		else if (check_rrr(str, a, b))
+		if (check_ss(str, a, b) || check_rrr(str, a, b))
 			i++;
 		else if (!ft_strncmp(str, "pa\n", 3))
 			pa(a, b, 0);
@@ -59,6 +57,7 @@ void	apply_instructions(t_stack **a, t_stack **b)
 			pa(b, a, 0);
 		else
 		{
+			write(2, "ERROR\n", 6);
 			free(str);
 			free_linked(*a);
 			free_linked(*b);
